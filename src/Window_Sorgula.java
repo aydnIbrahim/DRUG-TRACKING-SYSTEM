@@ -1,64 +1,43 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import javax.swing.*; // Swing kütüphanesini içe aktarır
+import java.awt.*; // AWT kütüphanesini içe aktarır
+import java.awt.event.ActionEvent; // ActionEvent sınıfını içe aktarır
+import java.awt.event.ActionListener; // ActionListener arayüzünü içe aktarır
+import java.sql.ResultSet; // ResultSet sınıfını içe aktarır
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-
+// İlaç sorgulama arayüzü sınıfı, ilaç takip sistemi ile etkileşimli bir arayüz oluşturur
 public class Window_Sorgula extends JFrame {
 
-    JFrame frame = new JFrame();
-
-    // ilaclar listesi, tüm ilaçları tutar
-    static ArrayList<Ilac> ilaclar = new ArrayList<>();
-
-    // ilaclar.txt dosyasının yolu
-    static String dosya_yolu = "ilaclar.txt";
-
-    private JPanel panel_sorgu;
-    private JButton sorgu_buton;
-    private JTextField ilac_barkod_alan;
-    private JLabel ilac_barkod_etiket;
+    JFrame frame = new JFrame(); // Ana pencereyi oluşturur
+    private JPanel panel_sorgu; // Sorgu panelini tanımlar
+    private JButton sorgu_buton; // Sorgu butonunu tanımlar
+    private JTextField ilac_barkod_alan; // İlaç barkod alanını tanımlar
+    private JLabel ilac_barkod_etiket; // İlaç barkod etiketini tanımlar
 
     public Window_Sorgula(){
 
-        panel_sorgu = new JPanel();
-        panel_sorgu.setLayout(new GridLayout(6, 2));
+        panel_sorgu = new JPanel(); // Sorgu panelini oluşturur
+        panel_sorgu.setLayout(new GridLayout(6, 2)); // Sorgu panelinin düzenini ayarlar
 
-        sorgu_buton = new JButton("Sorgula");
-        sorgu_buton.addActionListener(new ActionListener() {
+        sorgu_buton = new JButton("Sorgula"); // Sorgu butonunu oluşturur
+        sorgu_buton.addActionListener(new ActionListener() { // Sorgu butonuna tıklandığında çalışacak kodu tanımlar
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (Ilac ilac : ilaclar) { // ilaclar listesindeki her ilaç için
-                    if (ilac.getBarkod().equals(ilac_barkod_alan.getText())) { // barkod numarası eşleşiyorsa
-                        System.out.println(ilac); // ilacı ekrana yaz
+                try{
+                    ItsDao itsDao = new ItsDao(); // Yeni bir ItsDao nesnesi oluşturur
+                    ResultSet rs = itsDao.ilac_sorgu(ilac_barkod_alan.getText()); // İlaç barkod alanındaki değere göre ilaç sorgusu yapar
+                    if (rs.next()){ // Sorgu sonucu varsa
+                        JOptionPane.showMessageDialog(frame, "İlaç Adı: " + rs.getString(1) + // İlaç adını alır
+                                        "\nBarkod No: " + rs.getString(2) + // Barkod no'yu alır
+                                        "\nFiyat: " + rs.getInt(3), // Fiyatı alır
+                                "İlaç Bilgileri", // Mesaj başlığı
+                                JOptionPane.INFORMATION_MESSAGE); // Mesaj tipi
                     }
+                    else // Sorgu sonucu yoksa
+                        JOptionPane.showMessageDialog(frame, "Aranan barkoda ait sonuç bulunamadı.", "Sorgu Bulunamadı", JOptionPane.ERROR_MESSAGE); // Hata mesajı gösterir
+
                 }
-                try {
-                    BufferedReader reader = new BufferedReader(new FileReader(dosya_yolu)); // dosyayı okumak için reader oluştur
-                    String line = reader.readLine(); // ilk satırı oku
-                    while (line != null) { // satır boş olana kadar
-                        String[] parts = line.split(","); // satırı virgüle göre böl
-                        String isim = parts[0]; // ilk parça ilaç ismi
-                        String barkod = parts[1]; // ikinci parça barkod no
-                        double fiyat = Double.parseDouble(parts[2]); // üçüncü parça satış fiyatı
-                        if (barkod.equals(ilac_barkod_alan.getText())) { // barkod numarası eşleşiyorsa
-                            System.out.println(line); // satırı ekrana yaz
-                            reader.close(); // reader'ı kapat
-                        }
-                        line = reader.readLine(); // bir sonraki satırı oku
-                    }
-                    reader.close(); // reader'ı kapat
-                } catch (Exception es) {
-                    System.out.println("Bir hata oluştu."); // Hata durumunda mesaj yaz
+                catch (Exception ez){ // Hata yakalar
+                    System.out.println(ez); // Hata mesajını yazdırır
                 }
             }
         });
@@ -67,16 +46,17 @@ public class Window_Sorgula extends JFrame {
 
         ilac_barkod_etiket = new JLabel("barkod no");   // Yeni bir barkod no etiketi oluşturur
 
-        panel_sorgu.add(ilac_barkod_etiket);
-        panel_sorgu.add(ilac_barkod_alan);
+        panel_sorgu.add(ilac_barkod_etiket); // Barkod no etiketini sorgu paneline ekler
+        panel_sorgu.add(ilac_barkod_alan); // Barkod no alanını sorgu paneline ekler
 
-        panel_sorgu.add(sorgu_buton);
+        panel_sorgu.add(sorgu_buton); // Sorgu butonunu sorgu paneline ekler
 
-        add(panel_sorgu);
-        setTitle("İlaç Sorgula");                     // Arayüzün başlığını ayarlar
-        setSize(400, 300);                     // Arayüzün boyutunu ayarlar
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);     // Arayüzün kapatılma davranışını ayarlar
-        setVisible(true);   // Arayüzün görünürlüğünü ayarlar
+        add(panel_sorgu); // Sorgu panelini ana pencereye ekler
+        setTitle("İlaç Sorgula"); // Ana pencerenin başlığını ayarlar
+        setSize(400, 300); // Ana pencerenin boyutunu ayarlar
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Ana pencerenin kapatılma davranışını ayarlar
+        setVisible(true); // Ana pencerenin görünürlüğünü ayarlar
+        setLocationRelativeTo(null); // Ana pencerenin ortalanmasını sağlar
 
     }
 

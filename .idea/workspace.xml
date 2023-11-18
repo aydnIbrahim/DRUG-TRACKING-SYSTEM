@@ -4,20 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ilac_takip_sistemi.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ilac.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IlacTakipArayuzu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Window_Kaydet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Window_Sorgula.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yedek_kod.txt" afterDir="false" />
+    <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="İlaç Takip Sistemi">
+      <change afterPath="$PROJECT_DIR$/src/ItsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ilac_takip_sistemi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Ilac_takip_sistemi.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ilac.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IlacTakipArayuzu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IlacTakipArayuzu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Window_Kaydet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window_Kaydet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Window_Sorgula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window_Sorgula.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +36,9 @@
     <setting file="file://$PROJECT_DIR$/src/IlacTakipArayuzu.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Window_Kaydet.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/Window_Sorgula.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -63,8 +63,17 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;/Volumes/T7/Ilac_takip_sistemi/src/Main.java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;
+    ]
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -78,12 +87,35 @@
       <workItem from="1700141718256" duration="6622000" />
       <workItem from="1700150700999" duration="3417000" />
       <workItem from="1700157659231" duration="2213000" />
-      <workItem from="1700227881416" duration="320000" />
+      <workItem from="1700227881416" duration="1091000" />
+      <workItem from="1700241894031" duration="3000" />
+      <workItem from="1700244602717" duration="2548000" />
+      <workItem from="1700247168945" duration="257000" />
+      <workItem from="1700295840152" duration="657000" />
+      <workItem from="1700296525009" duration="510000" />
+      <workItem from="1700297060988" duration="287000" />
+      <workItem from="1700297361171" duration="125000" />
+      <workItem from="1700297494498" duration="139000" />
+      <workItem from="1700297635167" duration="147000" />
+      <workItem from="1700297825991" duration="6544000" />
     </task>
+    <task id="LOCAL-00001" summary="İlaç Takip Sistemi">
+      <option name="closed" value="true" />
+      <created>1700228457995</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700228457995</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="İlaç Takip Sistemi" />
+    <option name="LAST_COMMIT_MESSAGE" value="İlaç Takip Sistemi" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,79 +1,63 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.ArrayList;
+import javax.swing.*; // Swing kütüphanesini içe aktarır
+import java.awt.*; // AWT kütüphanesini içe aktarır
+import java.awt.event.ActionEvent; // ActionEvent sınıfını içe aktarır
+import java.awt.event.ActionListener; // ActionListener arayüzünü içe aktarır
+import java.sql.SQLException; // SQLException sınıfını içe aktarır
 
+// İlaç kaydetme arayüzü sınıfı, ilaç takip sistemi ile etkileşimli bir arayüz oluşturur
 public class Window_Kaydet{
+    JFrame frame = new JFrame(); // Ana pencereyi oluşturur
 
-    // ilaclar listesi, tüm ilaçları tutar
-    static ArrayList<Ilac> ilaclar = new ArrayList<>();
-
-    // ilaclar.txt dosyasının yolu
-    static String dosya_yolu = "ilaclar.txt";
-
-    JFrame frame = new JFrame();
-
-    private JPanel panel_kaydet;
-    private JButton kaydet_buton;
-    private JTextField ilac_isim_alan;      // İlaç isim giriş alanı
-    private JTextField ilac_barkod_alan;    // İlaç barkodu giriş alanı
-    private JTextField ilac_fiyat_alan;     // İlaç fiyatı giriş alanı
-    private JLabel ilac_isim_etiket;        // İlaç ismi etiketi
-    private JLabel ilac_barkod_etiket;      // İlaç barkod etiketi
-    private JLabel ilac_fiyat_etiket;       // İlaç fiyat etiketi
+    private JPanel panel_kaydet; // Kaydetme panelini tanımlar
+    private JButton kaydet_buton; // Kaydetme butonunu tanımlar
+    private JTextField ilac_isim_alan; // İlaç isim alanını tanımlar
+    private JTextField ilac_barkod_alan; // İlaç barkod alanını tanımlar
+    private JTextField ilac_fiyat_alan; // İlaç fiyat alanını tanımlar
+    private JLabel ilac_isim_etiket; // İlaç isim etiketini tanımlar
+    private JLabel ilac_barkod_etiket; // İlaç barkod etiketini tanımlar
+    private JLabel ilac_fiyat_etiket; // İlaç fiyat etiketini tanımlar
 
 
     public Window_Kaydet() {
 
-        panel_kaydet = new JPanel();
-        panel_kaydet.setLayout(new GridLayout(6, 2));       // Panelin düzenini 6 satır 2 sütun olarak ayarlar
+        panel_kaydet = new JPanel(); // Kaydetme panelini oluşturur
+        panel_kaydet.setLayout(new GridLayout(6, 2)); // Kaydetme panelinin düzenini ayarlar
 
-        kaydet_buton = new JButton("Kaydet");
-        kaydet_buton.addActionListener(new ActionListener() {
+        kaydet_buton = new JButton("Tablet"); // Kaydetme butonunu oluşturur
+        kaydet_buton.addActionListener(new ActionListener() { // Kaydetme butonuna tıklandığında çalışacak kodu tanımlar
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(ilac_isim_alan.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(frame,"İsim bilgisi boş bırakılamaz.", "Kaydetme Hatası", JOptionPane.INFORMATION_MESSAGE);
-                }
-                else if(!(ilac_barkod_alan.getText().length() == 13)){
-                    JOptionPane.showMessageDialog(frame,"Lütfen barkod no bilgisini kontrol edin.", "Kaydetme Hatası", JOptionPane.INFORMATION_MESSAGE);
-                }
-                else if(ilac_fiyat_alan.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(frame,"Fiyat bilgisi boş bırakılamaz.", "Kaydetme Hatası", JOptionPane.INFORMATION_MESSAGE);
-                } else{
-                    Ilac yeni_ilac = new Ilac(ilac_isim_alan.getText(), ilac_barkod_alan.getText(), Integer.parseInt(ilac_fiyat_alan.getText())); // Yeni bir ilaç nesnesi oluştur
-                    ilaclar.add(yeni_ilac); // ilaclar listesine ekle
-                    try {
-                        FileWriter writer = new FileWriter(dosya_yolu, true); // dosyayı ekleme modunda aç
-                        writer.write(yeni_ilac.getIsim() + "," + yeni_ilac.getBarkod() + "," + yeni_ilac.getFiyat() + "\n"); // yeni ilacın bilgilerini dosyaya yaz
-                        writer.close(); // dosyayı kapat
-                    } catch (Exception ez) {
-                        System.out.println("Bir hata oluştu."); // Hata durumunda mesaj yaz
-                    }
 
-                    try {
-                        BufferedReader reader = new BufferedReader(new FileReader(dosya_yolu)); // dosyayı okumak için reader oluştur
-                        String line = reader.readLine(); // ilk satırı oku
-                        while (line != null) { // satır boş olana kadar
-                            String[] parts = line.split(","); // satırı virgüle göre böl
-                            String isim = parts[0]; // ilk parça ilaç ismi
-                            String barkod = parts[1]; // ikinci parça barkod no
-                            double fiyat = Double.parseDouble(parts[2]); // üçüncü parça satış fiyatı
-                            Ilac ilac = new Ilac(isim, barkod, fiyat); // yeni bir ilaç nesnesi oluştur
-                            ilaclar.add(ilac); // ilaclar listesine ekle
-                            line = reader.readLine(); // bir sonraki satırı oku
-                        }
-                        reader.close(); // reader'ı kapat
-                    } catch (Exception ea) {
-                        System.out.println("Bir hata oluştu."); // Hata durumunda mesaj yaz
+                ItsDao itsDao = new ItsDao();               // Yeni bir ItsDao nesnesi oluşturur
+                String name = ilac_isim_alan.getText();     // İlaç isim alanındaki değeri alır
+                String barkod = ilac_barkod_alan.getText(); // İlaç barkod alanındaki değeri alır
+                String price = ilac_fiyat_alan.getText();   // İlaç fiyat alanındaki değeri alır
+
+                try{
+                    if(name.isEmpty()){ // İsim alanı boşsa
+                        JOptionPane.showMessageDialog(frame,"İsim bilgisi boş bırakılamaz.", "Kaydetme Hatası", JOptionPane.ERROR_MESSAGE); // Hata mesajı gösterir
+                    }
+                    else if(!(barkod.length() == 13)){ // Barkod numarası 13 haneli değilse
+                        JOptionPane.showMessageDialog(frame,"Lütfen barkod no bilgisini kontrol edin.", "Kaydetme Hatası", JOptionPane.ERROR_MESSAGE); // Hata mesajı gösterir
+                    }
+                    else if(price.isEmpty()){ // Fiyat alanı boşsa
+                        JOptionPane.showMessageDialog(frame,"Fiyat bilgisi boş bırakılamaz.", "Kaydetme Hatası", JOptionPane.ERROR_MESSAGE); // Hata mesajı gösterir
+                    } else if (itsDao.ilac_sorgu(ilac_barkod_alan.getText()).next()) { // Barkod numarası veritabanında varsa
+                        if (itsDao.ilac_sorgu(ilac_barkod_alan.getText()).getString(2).equals(ilac_barkod_alan.getText())) // Barkod numarası eşleşiyorsa
+                            JOptionPane.showMessageDialog(frame, "Bu barkod daha önce kaydedilmiş.", "Kaydetme Hatası", JOptionPane.ERROR_MESSAGE); // Hata mesajı gösterir
+                    } else{
+                        itsDao.ilac_ekle(name, barkod, price); // İlaç bilgilerini veritabanına ekler
+                        JOptionPane.showMessageDialog(frame, "Kaydetme işlemi başarılı.", "Kaydet", JOptionPane.INFORMATION_MESSAGE); // Başarı mesajı gösterir
+                        return;
                     }
                 }
+                catch (Exception ex){ // Hata yakalar
+                    System.out.println(ex); // Hata mesajını yazdırır
+                }
+
             }
         });
+
 
         ilac_isim_alan = new JTextField();    // Yeni bir ilaç ismi giriş alanı oluşturur
         ilac_barkod_alan = new JTextField();  // Yeni bir barkod no giriş alanı oluşturur
@@ -92,12 +76,14 @@ public class Window_Kaydet{
         panel_kaydet.add(ilac_fiyat_etiket);       // Panelin beşinci hücresine ilaç fiyat etiketini ekler
         panel_kaydet.add(ilac_fiyat_alan);         // Panelin altıncı hücresine ilaç fiyat giriş alanını ekler
 
-        panel_kaydet.add(kaydet_buton);
+        panel_kaydet.add(kaydet_buton);            // Panelin son hücresine kaydetme butonunu ekler
 
-        frame.add(panel_kaydet);
-        frame.setTitle("İlaç Kaydet");                     // Arayüzün başlığını ayarlar
-        frame.setSize(400, 300);                     // Arayüzün boyutunu ayarlar
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);     // Arayüzün kapatılma davranışını ayarlar
-        frame.setVisible(true);   // Arayüzün görünürlüğünü ayarlar
+        frame.add(panel_kaydet);                   // Kaydetme panelini ana pencereye ekler
+        frame.setTitle("İlaç Kaydet");             // Ana pencerenin başlığını ayarlar
+        frame.setSize(400, 300);      // Ana pencerenin boyutunu ayarlar
+        frame.setLocationRelativeTo(null);         // Ana pencerenin ortalanmasını sağlar
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Ana pencerenin kapatılma davranışını ayarlar
+        frame.setVisible(true);                    // Ana pencerenin görünürlüğünü ayarlar
     }
 }
+
