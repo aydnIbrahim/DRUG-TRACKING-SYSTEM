@@ -23,7 +23,7 @@ public class Window_Kaydet{
         panel_kaydet = new JPanel(); // Kaydetme panelini oluşturur
         panel_kaydet.setLayout(new GridLayout(6, 2)); // Kaydetme panelinin düzenini ayarlar
 
-        kaydet_buton = new JButton("Tablet"); // Kaydetme butonunu oluşturur
+        kaydet_buton = new JButton("Kaydet"); // Kaydetme butonunu oluşturur
         kaydet_buton.addActionListener(new ActionListener() { // Kaydetme butonuna tıklandığında çalışacak kodu tanımlar
             @Override
             public void actionPerformed(ActionEvent e) {
