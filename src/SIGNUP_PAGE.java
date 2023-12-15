@@ -54,7 +54,8 @@ public class SIGNUP_PAGE {
         confirmPasswordField.setBounds(375, 205, 100, 30);
         confirmPasswordField.setEchoChar('*');
 
-        JButton signupButton = getjButton();
+        JButton signupButton = getButton();
+        JButton login_button = getjButton();
 
         frame.add(titleLabel);
         frame.add(companyNameLabel);
@@ -66,6 +67,7 @@ public class SIGNUP_PAGE {
         frame.add(passwordField);
         frame.add(confirmPasswordField);
         frame.add(signupButton);
+        frame.add(login_button);
 
 
         frame.setSize(700, 400);
@@ -77,10 +79,10 @@ public class SIGNUP_PAGE {
         frame.setVisible(true);
     }
 
-    private JButton getjButton() {
+    private JButton getButton() {
         JButton signupButton = new JButton("SIGN UP");
         signupButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
-        signupButton.setBounds(300, 280, 100, 30);
+        signupButton.setBounds(307, 270, 100, 30);
 
         signupButton.addActionListener(e -> {
             char[] password = passwordField.getPassword ();
@@ -93,8 +95,11 @@ public class SIGNUP_PAGE {
                     ItsDao itsDao = new ItsDao();
                     try {
                         boolean r = itsDao.save(companyNameField.getText(), usernameField.getText(), password);
-                        if (r)
+                        if (r){
+                            new LoginPage();
+                            frame.dispose();
                             JOptionPane.showMessageDialog(frame, "Registration Successful", "Registration", JOptionPane.INFORMATION_MESSAGE);
+                        }
                         else
                             JOptionPane.showMessageDialog(frame, "Registration Failed", "Registration", JOptionPane.ERROR_MESSAGE);
                     } catch (SQLException | ClassNotFoundException ex) {
@@ -107,5 +112,17 @@ public class SIGNUP_PAGE {
             }
         });
         return signupButton;
+    }
+
+    private JButton getjButton(){
+        JButton signup_button = new JButton("ALREADY HAVE AN ACCOUNT SIGN IN");
+        signup_button.setFont(new Font("Pt Mono", Font.BOLD, 8));
+        signup_button.setBounds(257, 320, 200, 30);
+
+        signup_button.addActionListener(e -> {
+            new LoginPage();
+            frame.dispose();
+        });
+        return signup_button;
     }
 }
