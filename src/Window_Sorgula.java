@@ -26,7 +26,7 @@ public class Window_Sorgula extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try{
                     ItsDao itsDao = new ItsDao(); // Yeni bir ItsDao nesnesi oluşturur
-                    ResultSet rs = itsDao.ilac_sorgu(ilac_barkod_alan.getText()); // İlaç barkod alanındaki değere göre ilaç sorgusu yapar/
+                    ResultSet rs = itsDao.ilac_sorgu(ilac_barkod_alan.getText()); // İlaç barkod alanındaki değere göre ilaç sorgusu yapar
                     if (rs.next()){ // Sorgu sonucu varsa
                         if(rs.previous())
                             JOptionPane.showMessageDialog(frame, "İlaç Adı: " + rs.getString(1) + // İlaç adını alır

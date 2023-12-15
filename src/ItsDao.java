@@ -81,5 +81,17 @@ public class ItsDao {
         }
     }
 
+    /***
+    public void control(String username, String password){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, this.username, passwd);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery();
+        }catch (Exception e3){
+            e3.printStackTrace();
+        }
+    }***/
+
 
 }
