@@ -2,10 +2,10 @@ import javax.swing.*; // Swing kütüphanesini içe aktarır
 import java.awt.*; // AWT kütüphanesini içe aktarır
 import java.awt.event.ActionEvent; // ActionEvent sınıfını içe aktarır
 import java.awt.event.ActionListener; // ActionListener arayüzünü içe aktarır
-import java.sql.SQLException; // SQLException sınıfını içe aktarır
+
 
 // İlaç kaydetme arayüzü sınıfı, ilaç takip sistemi ile etkileşimli bir arayüz oluşturur
-public class Window_Kaydet{
+public class SAVE_PAGE {
     JFrame frame = new JFrame(); // Ana pencereyi oluşturur
 
     private JPanel panel_kaydet; // Kaydetme panelini tanımlar
@@ -18,7 +18,7 @@ public class Window_Kaydet{
     private JLabel ilac_fiyat_etiket; // İlaç fiyat etiketini tanımlar
 
 
-    public Window_Kaydet() {
+    public SAVE_PAGE() {
 
         panel_kaydet = new JPanel(); // Kaydetme panelini oluşturur
         panel_kaydet.setLayout(new GridLayout(6, 2)); // Kaydetme panelinin düzenini ayarlar

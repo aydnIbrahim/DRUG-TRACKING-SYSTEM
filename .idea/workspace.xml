@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="İlaç Takip Sistemi">
+      <change afterPath="$PROJECT_DIR$/src/MAIN_PAGE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/main.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/main.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LOGIN_PAGE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainPage.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SIGNUP_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SIGNUP_PAGE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Window_Kaydet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAVE_PAGE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Window_Sorgula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QUERY_PAGE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +119,7 @@
       <workItem from="1702596896601" duration="716000" />
       <workItem from="1702598820984" duration="20000" />
       <workItem from="1702598876925" duration="32000" />
-      <workItem from="1702627507977" duration="15411000" />
+      <workItem from="1702627507977" duration="21390000" />
     </task>
     <task id="LOCAL-00001" summary="İlaç Takip Sistemi">
       <option name="closed" value="true" />
@@ -171,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702671020576</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="İlaç Takip Sistemi">
+      <option name="closed" value="true" />
+      <created>1702673944885</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702673944885</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

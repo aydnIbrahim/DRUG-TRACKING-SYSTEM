@@ -5,7 +5,7 @@ import java.awt.event.ActionListener; // ActionListener arayüzünü içe aktar�
 import java.sql.ResultSet; // ResultSet sınıfını içe aktarır
 
 // İlaç sorgulama arayüzü sınıfı, ilaç takip sistemi ile etkileşimli bir arayüz oluşturur
-public class Window_Sorgula extends JFrame {
+public class QUERY_PAGE extends JFrame {
 
     JFrame frame = new JFrame(); // Ana pencereyi oluşturur
     private JPanel panel_sorgu; // Sorgu panelini tanımlar
@@ -14,7 +14,7 @@ public class Window_Sorgula extends JFrame {
     private JTextField ilac_barkod_alan; // İlaç barkod alanını tanımlar
     private JLabel ilac_barkod_etiket; // İlaç barkod etiketini tanımlar
 
-    public Window_Sorgula(){
+    public QUERY_PAGE(){
 
         panel_sorgu = new JPanel(); // Sorgu panelini oluşturur
         panel_sorgu.setLayout(new GridLayout(6, 2)); // Sorgu panelinin düzenini ayarlar

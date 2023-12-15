@@ -96,7 +96,7 @@ public class SIGNUP_PAGE {
                     try {
                         boolean r = itsDao.save(companyNameField.getText(), usernameField.getText(), password);
                         if (r){
-                            new LoginPage();
+                            new LOGIN_PAGE();
                             frame.dispose();
                             JOptionPane.showMessageDialog(frame, "Registration Successful", "Registration", JOptionPane.INFORMATION_MESSAGE);
                         }
@@ -120,7 +120,7 @@ public class SIGNUP_PAGE {
         signup_button.setBounds(257, 320, 200, 30);
 
         signup_button.addActionListener(e -> {
-            new LoginPage();
+            new LOGIN_PAGE();
             frame.dispose();
         });
         return signup_button;

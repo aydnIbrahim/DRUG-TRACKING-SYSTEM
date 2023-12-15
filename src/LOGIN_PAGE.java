@@ -1,15 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.sql.SQLException;
 
-public class LoginPage {
+public class LOGIN_PAGE {
 
     private final JFrame frame;
     private final JPasswordField passwordField;
     private final JTextField usernameField;
 
 
-    public LoginPage(){
+    public LOGIN_PAGE(){
 
         frame = new JFrame();
 
@@ -73,12 +74,12 @@ public class LoginPage {
             try {
                 boolean r = itsDao.control(usernameField.getText(), password);
                 if (r){
-                    new MainPage();
+                    new MAIN_PAGE();
                     frame.dispose();
                 }
                 else
                     JOptionPane.showMessageDialog(frame, "Check login information.", "Login Error", JOptionPane.ERROR_MESSAGE);
-            } catch (SQLException | ClassNotFoundException ex) {
+            } catch (SQLException | ClassNotFoundException | IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
