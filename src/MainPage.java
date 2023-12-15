@@ -31,7 +31,7 @@ public class MainPage {
         frame.add(sorgula_buton); // Sorgula butonunu ana pencereye ekler
         frame.add(image_label);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Ana pencerenin kapatılması durumunda programın sonlanmasını sağlar
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Ana pencerenin kapatılması durumunda programın sonlanmasını sağlar
         frame.setSize(700, 500); // Ana pencerenin boyutunu ayarlar
         frame.setResizable(false);
         frame.setTitle("İlaç Takip Sistemi"); // Ana pencerenin başlığını ayarlar

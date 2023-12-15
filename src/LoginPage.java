@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
 
 public class LoginPage {
 
@@ -47,7 +48,17 @@ public class LoginPage {
         login_button.setBounds(300, 270, 100, 30);
 
         login_button.addActionListener(e -> {
-
+            char[] password = passwordField.getPassword ();
+            ItsDao itsDao = new ItsDao();
+            try {
+                boolean r = itsDao.control(usernameField.getText(), password);
+                if (r)
+                    new MainPage();
+                else
+                    System.out.println("olmadı");
+            } catch (SQLException | ClassNotFoundException ex) {
+                throw new RuntimeException(ex);
+            }
         });
 
         frame.add(titleLabel1);
@@ -66,8 +77,5 @@ public class LoginPage {
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.setVisible(true);
-
-
     }
-
 }
