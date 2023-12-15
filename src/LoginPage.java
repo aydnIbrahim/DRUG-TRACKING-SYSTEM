@@ -57,7 +57,7 @@ public class LoginPage {
                 if (r)
                     new MainPage();
                 else
-                    System.out.println("olmadı");
+                    JOptionPane.showMessageDialog(frame, "Check login information.", "Login Error", JOptionPane.ERROR_MESSAGE);
             } catch (SQLException | ClassNotFoundException ex) {
                 throw new RuntimeException(ex);
             }
