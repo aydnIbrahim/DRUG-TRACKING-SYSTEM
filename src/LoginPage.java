@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 public class LoginPage {
 
-    JFrame frame = new JFrame();
+    private JFrame frame;
     private JLabel passwordLabel;
     private JLabel usernameLabel;
     private JPasswordField passwordField;
@@ -15,6 +15,8 @@ public class LoginPage {
 
 
     public LoginPage(){
+
+        frame = new JFrame();
 
         titleLabel1 = new JLabel("WELCOME TO");
         titleLabel1.setFont(new Font("Pt Mono", Font.BOLD, 30));
