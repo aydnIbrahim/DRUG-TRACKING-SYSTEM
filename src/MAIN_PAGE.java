@@ -12,8 +12,7 @@ public class MAIN_PAGE {
     public MAIN_PAGE() throws IOException {
 
         frame = new JFrame();
-
-        BufferedImage image = ImageIO.read(new File("/Users/ibrahimaydin/Desktop/Ilac_takip_sistemi/Resources/mainPageImage.jpg"));
+        BufferedImage image = ImageIO.read(new File("Resources/mainPageImage.jpg"));
 
         JLabel imageLabel = new JLabel(new ImageIcon(image));
         imageLabel.setBounds(50,50, 300, 300);

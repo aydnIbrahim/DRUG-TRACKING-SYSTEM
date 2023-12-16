@@ -18,7 +18,7 @@ public class SAVE_PAGE {
 
         frame = new JFrame();
 
-        BufferedImage image = ImageIO.read(new File("/Users/ibrahimaydin/Desktop/Ilac_takip_sistemi/Resources/savePageImage.jpg"));
+        BufferedImage image = ImageIO.read(new File("Resources/savePageImage.jpg"));
 
         JLabel imageLabel = new JLabel(new ImageIcon(image));
         imageLabel.setBounds(50, 50, 300, 300);
