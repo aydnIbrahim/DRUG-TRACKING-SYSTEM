@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Arrays;
 
 public class SIGNUP_PAGE {
@@ -92,7 +92,7 @@ public class SIGNUP_PAGE {
             }
             else{
                 if (Arrays.equals(password, confirmPassword)){
-                    ItsDao itsDao = new ItsDao();
+                    DTS_DAO itsDao = new DTS_DAO();
                     try {
                         boolean r = itsDao.save(companyNameField.getText(), usernameField.getText(), password);
                         if (r){

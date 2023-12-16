@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Ilac_takip_sistemi.iml" filepath="$PROJECT_DIR$/Ilac_takip_sistemi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Drug Tracking System.iml" filepath="$PROJECT_DIR$/Drug Tracking System.iml" />
     </modules>
   </component>
 </project>

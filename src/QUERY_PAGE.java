@@ -1,82 +1,98 @@
-import javax.swing.*; // Swing kütüphanesini içe aktarır
-import java.awt.*; // AWT kütüphanesini içe aktarır
-import java.awt.event.ActionEvent; // ActionEvent sınıfını içe aktarır
-import java.awt.event.ActionListener; // ActionListener arayüzünü içe aktarır
-import java.sql.ResultSet; // ResultSet sınıfını içe aktarır
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
 
-// İlaç sorgulama arayüzü sınıfı, ilaç takip sistemi ile etkileşimli bir arayüz oluşturur
-public class QUERY_PAGE extends JFrame {
 
-    JFrame frame = new JFrame(); // Ana pencereyi oluşturur
-    private JPanel panel_sorgu; // Sorgu panelini tanımlar
-    private JButton sorgu_buton; // Sorgu butonunu tanımlar
-    private JButton sil_buton;
-    private JTextField ilac_barkod_alan; // İlaç barkod alanını tanımlar
-    private JLabel ilac_barkod_etiket; // İlaç barkod etiketini tanımlar
+public class QUERY_PAGE {
 
-    public QUERY_PAGE(){
+    private final JFrame frame;
+    private final JTextField barcodeField;
 
-        panel_sorgu = new JPanel(); // Sorgu panelini oluşturur
-        panel_sorgu.setLayout(new GridLayout(6, 2)); // Sorgu panelinin düzenini ayarlar
+    public QUERY_PAGE() throws IOException {
 
-        sorgu_buton = new JButton("Sorgula"); // Sorgu butonunu oluşturur
-        sil_buton = new JButton("Kaydı Sil");
-        sorgu_buton.addActionListener(new ActionListener() { // Sorgu butonuna tıklandığında çalışacak kodu tanımlar
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try{
-                    ItsDao itsDao = new ItsDao(); // Yeni bir ItsDao nesnesi oluşturur
-                    ResultSet rs = itsDao.ilac_sorgu(ilac_barkod_alan.getText()); // İlaç barkod alanındaki değere göre ilaç sorgusu yapar
-                    if (rs.next()){ // Sorgu sonucu varsa
-                        if(rs.previous())
-                            JOptionPane.showMessageDialog(frame, "İlaç Adı: " + rs.getString(1) + // İlaç adını alır
-                                            "\nBarkod No: " + rs.getString(2) + // Barkod no'yu alır
-                                            "\nFiyat: " + rs.getInt(3), // Fiyatı alır
-                                    "İlaç Bilgileri", // Mesaj başlığı
-                                    JOptionPane.INFORMATION_MESSAGE); // Mesaj tipi
-                    } else if (rs.previous()) {
-                            JOptionPane.showMessageDialog(frame, "İlaç Adı: " + rs.getString(1) + // İlaç adını alır
-                                            "\nBarkod No: " + rs.getString(2) + // Barkod no'yu alır
-                                            "\nFiyat: " + rs.getInt(3), // Fiyatı alır
-                                    "İlaç Bilgileri", // Mesaj başlığı
-                                    JOptionPane.INFORMATION_MESSAGE); // Mesaj tipi
-                    } else{
-                        JOptionPane.showMessageDialog(frame, "Aranan barkoda ait sonuç bulunamadı.", "Sorgu Bulunamadı", JOptionPane.ERROR_MESSAGE); // Hata mesajı gösterir
-                    }
-                }
-                catch (Exception ez){ // Hata yakalar
-                    ez.printStackTrace();
-                }
-            }
-        });
+        frame = new JFrame();
 
-        sil_buton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ItsDao itsDao = new ItsDao();
-                boolean st = itsDao.ilac_sil(ilac_barkod_alan.getText());
-                if(st)
-                    JOptionPane.showMessageDialog(frame, "Silme işlemi başarılı.", "Kayıt Silindi", JOptionPane.INFORMATION_MESSAGE);
+        BufferedImage image = ImageIO.read(new File("/Users/ibrahimaydin/Desktop/Ilac_takip_sistemi/Resources/queryPageImage.jpg"));
+
+        JLabel imageLabel = new JLabel(new ImageIcon(image));
+        imageLabel.setBounds(50, 50, 300, 300);
+
+        JLabel barcodeLabel = new JLabel("Barcode");
+        barcodeLabel.setFont(new Font("Pt Mono", Font.BOLD, 16));
+        barcodeLabel.setForeground(new Color(37, 153, 252));
+        barcodeLabel.setBounds(385, 110, 100, 30);
+
+        barcodeField = new JTextField();
+        barcodeField.setBounds(485, 110, 120, 30);
+
+        JButton queryButton = getButton();
+        JButton removeButton = getjButton();
+
+        frame.add(imageLabel);
+        frame.add(barcodeLabel);
+        frame.add(barcodeField);
+        frame.add(queryButton);
+        frame.add(removeButton);
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(700, 428);
+        frame.setResizable(false);
+        frame.setTitle("SAVE");
+        frame.getContentPane().setBackground(new Color(32, 34,46));
+        frame.setLocationRelativeTo(null);
+        frame.setLayout(null);
+        frame.setVisible(true);
+
+    }
+
+    public JButton getButton(){
+        JButton queryButton = new JButton("QUERY");
+        queryButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        queryButton.setBounds(450, 220, 150, 30);
+
+        queryButton.addActionListener(e -> {
+            DTS_DAO dtsDao = new DTS_DAO();
+            try {
+                boolean s = dtsDao.query(barcodeField.getText());
+                if (s)
+                    JOptionPane.showMessageDialog(frame, "A record of the searched barcode was found.\n" +
+                            dtsDao.getDrugInformation(barcodeField.getText()),
+                            "RECORD FOUND", JOptionPane.INFORMATION_MESSAGE);
                 else
-                    JOptionPane.showMessageDialog(frame, "Silme işlemi başarısız. Aranan barkoda ait kayıt bulunamadı.", "Silme Hatası", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(frame, "A record of the searched barcode was not found.",
+                            "RECORD NOT FOUND", JOptionPane.ERROR_MESSAGE);
+
+            } catch (ClassNotFoundException | SQLException ex) {
+                throw new RuntimeException(ex);
             }
         });
+        return queryButton;
+    }
 
-        ilac_barkod_alan = new JTextField();  // Yeni bir barkod no giriş alanı oluşturur
+    public JButton getjButton(){
+        JButton removeButton = new JButton("DELETE");
+        removeButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        removeButton.setBounds(450, 260, 150, 30);
 
-        ilac_barkod_etiket = new JLabel("barkod no");   // Yeni bir barkod no etiketi oluşturur
+        removeButton.addActionListener(e -> {
+            DTS_DAO dtsDao = new DTS_DAO();
+            try {
+                boolean s = dtsDao.remove(barcodeField.getText());
+                if (s)
+                    JOptionPane.showMessageDialog(frame, "The barcode record has been deleted.",
+                            "RECORD REMOVED", JOptionPane.INFORMATION_MESSAGE);
+                else
+                    JOptionPane.showMessageDialog(frame, "The barcode record was not able to removed.",
+                            "RECORD NOT REMOVED", JOptionPane.ERROR_MESSAGE);
 
-        panel_sorgu.add(ilac_barkod_etiket); // Barkod no etiketini sorgu paneline ekler
-        panel_sorgu.add(ilac_barkod_alan); // Barkod no alanını sorgu paneline ekler
-
-        panel_sorgu.add(sorgu_buton); // Sorgu butonunu sorgu paneline ekler
-        panel_sorgu.add(sil_buton);
-
-        add(panel_sorgu); // Sorgu panelini ana pencereye ekler
-        setTitle("İlaç Sorgula"); // Ana pencerenin başlığını ayarlar
-        setSize(400, 300); // Ana pencerenin boyutunu ayarlar
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Ana pencerenin kapatılma davranışını ayarlar
-        setVisible(true); // Ana pencerenin görünürlüğünü ayarlar
-        setLocationRelativeTo(null); // Ana pencerenin ortalanmasını sağlar
+            } catch (ClassNotFoundException | SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        return removeButton;
     }
 }

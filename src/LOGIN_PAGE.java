@@ -70,7 +70,7 @@ public class LOGIN_PAGE {
 
         login_button.addActionListener(e -> {
             char[] password = passwordField.getPassword ();
-            ItsDao itsDao = new ItsDao();
+            DTS_DAO itsDao = new DTS_DAO();
             try {
                 boolean r = itsDao.control(usernameField.getText(), password);
                 if (r){

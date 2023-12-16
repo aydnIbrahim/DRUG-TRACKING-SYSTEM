@@ -64,7 +64,11 @@ public class MAIN_PAGE {
         saveButton.setBounds(450, 230, 150, 30);
 
         saveButton.addActionListener(e -> {
-            new SAVE_PAGE();
+            try {
+                new SAVE_PAGE();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             frame.dispose();
         });
 
@@ -77,7 +81,11 @@ public class MAIN_PAGE {
         queryButton.setBounds(450, 270, 150, 30);
 
         queryButton.addActionListener(e -> {
-            new QUERY_PAGE();
+            try {
+                new QUERY_PAGE();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             frame.dispose();
         });
 
