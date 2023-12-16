@@ -29,6 +29,7 @@ public class QUERY_PAGE {
         barcodeField = new JTextField();
         barcodeField.setBounds(485, 110, 120, 30);
 
+        JButton backButton = getBackButton();
         JButton queryButton = getButton();
         JButton removeButton = getjButton();
 
@@ -37,6 +38,7 @@ public class QUERY_PAGE {
         frame.add(barcodeField);
         frame.add(queryButton);
         frame.add(removeButton);
+        frame.add(backButton);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 428);
@@ -94,5 +96,25 @@ public class QUERY_PAGE {
             }
         });
         return removeButton;
+    }
+
+    public JButton getBackButton() throws IOException {
+        BufferedImage imageBack = ImageIO.read(new File("Resources/arrowshape.backward.png"));
+        JButton backButton = new JButton(new ImageIcon(imageBack));
+        backButton.setBackground(new Color(32, 34,46));
+        backButton.setFocusable(false);
+        backButton.setBorderPainted(false);
+        backButton.setBounds(5, 5, 50, 50);
+
+        backButton.addActionListener(e -> {
+            frame.dispose();
+            try {
+                new MAIN_PAGE();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        return backButton;
     }
 }

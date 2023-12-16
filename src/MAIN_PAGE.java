@@ -35,16 +35,16 @@ public class MAIN_PAGE {
         queryArea.setLineWrap(true);
         queryArea.setWrapStyleWord(true);
 
+        JButton backButton = getBackButton();
+        JButton saveButton = getQueryButton();
+        JButton queryButton = getSaveButton();
 
-        JButton saveButton = getButton();
-        JButton queryButton = getjButton();
-
+        frame.add(backButton);
         frame.add(imageLabel);
         frame.add(saveArea);
         frame.add(queryArea);
         frame.add(saveButton);
         frame.add(queryButton);
-
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 428);
@@ -57,7 +57,7 @@ public class MAIN_PAGE {
 
     }
 
-    private JButton getButton(){
+    private JButton getQueryButton(){
         JButton saveButton = new JButton("QUERY");
         saveButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
         saveButton.setBounds(450, 230, 150, 30);
@@ -74,7 +74,7 @@ public class MAIN_PAGE {
         return saveButton;
     }
 
-    private JButton getjButton(){
+    private JButton getSaveButton(){
         JButton queryButton = new JButton("SAVE");
         queryButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
         queryButton.setBounds(450, 270, 150, 30);
@@ -89,6 +89,26 @@ public class MAIN_PAGE {
         });
 
         return queryButton;
+    }
+
+    public JButton getBackButton() throws IOException {
+        BufferedImage imageBack = ImageIO.read(new File("Resources/arrowshape.backward.png"));
+        JButton backButton = new JButton(new ImageIcon(imageBack));
+        backButton.setBackground(new Color(32, 34,46));
+        backButton.setFocusable(false);
+        backButton.setBorderPainted(false);
+        backButton.setBounds(5, 5, 50, 50);
+
+        backButton.addActionListener(e -> {
+            frame.dispose();
+            try {
+                new LOGIN_PAGE();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        return backButton;
     }
 
 }

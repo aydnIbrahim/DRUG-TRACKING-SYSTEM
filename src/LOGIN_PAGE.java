@@ -7,10 +7,10 @@ public class LOGIN_PAGE {
 
     private final JFrame frame;
     private final JPasswordField passwordField;
-    private final JTextField usernameField;
+    private final JTextField emailField;
 
 
-    public LOGIN_PAGE(){
+    public LOGIN_PAGE() throws IOException{
 
         frame = new JFrame();
 
@@ -24,34 +24,36 @@ public class LOGIN_PAGE {
         titleLabel2.setForeground(new Color(202, 204, 220));
         titleLabel2.setBounds(171, 60, 500, 50);
 
-        JLabel usernameLabel = new JLabel("Username");
-        usernameLabel.setFont(new Font("Pt Mono", Font.BOLD, 16));
-        usernameLabel.setForeground(new Color(37, 153, 252));
-        usernameLabel.setBounds(252, 170, 100, 30);
+        JLabel emailLabel = new JLabel("Email");
+        emailLabel.setFont(new Font("Pt Mono", Font.BOLD, 16));
+        emailLabel.setForeground(new Color(37, 153, 252));
+        emailLabel.setBounds(252, 170, 100, 30);
 
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setFont(new Font("Pt Mono", Font.BOLD, 16));
         passwordLabel.setForeground(new Color(37, 153, 252));
         passwordLabel.setBounds(252, 200, 100, 30);
 
-        usernameField = new JTextField();
-        usernameField.setBounds(352, 170, 100, 30);
+        emailField = new JTextField();
+        emailField.setBounds(352, 170, 100, 30);
 
         passwordField = new JPasswordField();
         passwordField.setBounds(352, 200, 100, 30);
         passwordField.setEchoChar('*');
 
-        JButton login_button = getButton();
-        JButton signup_button = getjButton();
+        JButton login_button = getLoginButton();
+        JButton signup_button = getSignupButton();
 
         frame.add(titleLabel1);
         frame.add(titleLabel2);
-        frame.add(usernameLabel);
+        frame.add(emailLabel);
         frame.add(passwordLabel);
-        frame.add(usernameField);
+        frame.add(emailField);
         frame.add(passwordField);
         frame.add(login_button);
         frame.add(signup_button);
+
+        SwingUtilities.getRootPane(login_button).setDefaultButton(login_button);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 400);
@@ -63,7 +65,7 @@ public class LOGIN_PAGE {
         frame.setVisible(true);
     }
 
-    private JButton getButton() {
+    private JButton getLoginButton() {
         JButton login_button = new JButton("LOGIN");
         login_button.setFont(new Font("Pt Mono", Font.BOLD, 15));
         login_button.setBounds(307, 270, 100, 30);
@@ -72,7 +74,7 @@ public class LOGIN_PAGE {
             char[] password = passwordField.getPassword ();
             DTS_DAO itsDao = new DTS_DAO();
             try {
-                boolean r = itsDao.control(usernameField.getText(), password);
+                boolean r = itsDao.control(emailField.getText(), password);
                 if (r){
                     new MAIN_PAGE();
                     frame.dispose();
@@ -86,15 +88,23 @@ public class LOGIN_PAGE {
         return login_button;
     }
 
-    private JButton getjButton(){
+    private JButton getSignupButton(){
         JButton signup_button = new JButton("DON'T HAVE AN ACCOUNT? SIGN UP");
         signup_button.setFont(new Font("Pt Mono", Font.BOLD, 10));
-        signup_button.setBounds(257, 320, 220, 30);
+        signup_button.setForeground(Color.white);
+        signup_button.setBorderPainted(false);
+        signup_button.setFocusable(false);
+        signup_button.setBounds(235, 320, 250, 30);
 
         signup_button.addActionListener(e -> {
-            new SIGNUP_PAGE();
+            try {
+                new SIGNUP_PAGE();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             frame.dispose();
         });
         return signup_button;
     }
+
 }

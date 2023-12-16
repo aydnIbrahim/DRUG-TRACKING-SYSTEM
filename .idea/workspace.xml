@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="DRUG TRACKING SYSTEM">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javax_mail_api.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sun_mail_jakarta.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sun_mail_javax.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Drug Tracking System.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Drug Tracking System.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LOGIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LOGIN_PAGE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MAIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MAIN_PAGE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/QUERY_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QUERY_PAGE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SAVE_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAVE_PAGE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SIGNUP_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SIGNUP_PAGE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +72,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.3097166&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;JavaScript.Libraries&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -119,7 +127,8 @@
       <workItem from="1702627507977" duration="21390000" />
       <workItem from="1702680268705" duration="10167000" />
       <workItem from="1702731249510" duration="343000" />
-      <workItem from="1702747141627" duration="116000" />
+      <workItem from="1702747141627" duration="7494000" />
+      <workItem from="1702756383496" duration="1148000" />
     </task>
     <task id="LOCAL-00001" summary="İlaç Takip Sistemi">
       <option name="closed" value="true" />
@@ -209,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702731399961</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="DRUG TRACKING SYSTEM">
+      <option name="closed" value="true" />
+      <created>1702747282815</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1702747282815</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

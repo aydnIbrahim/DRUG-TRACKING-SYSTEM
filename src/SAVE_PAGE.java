@@ -47,8 +47,8 @@ public class SAVE_PAGE {
         priceField = new JTextField();
         priceField.setBounds(485, 170, 120, 30);
 
+        JButton backButton = getBackButton();
         JButton saveButton = getButton();
-
 
         frame.add(imageLabel);
         frame.add(nameLabel);
@@ -58,6 +58,7 @@ public class SAVE_PAGE {
         frame.add(barcodeField);
         frame.add(priceField);
         frame.add(saveButton);
+        frame.add(backButton);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 428);
@@ -101,6 +102,26 @@ public class SAVE_PAGE {
 
         });
         return saveButton;
+    }
+
+    public JButton getBackButton() throws IOException {
+        BufferedImage imageBack = ImageIO.read(new File("Resources/arrowshape.backward.png"));
+        JButton backButton = new JButton(new ImageIcon(imageBack));
+        backButton.setBackground(new Color(32, 34,46));
+        backButton.setFocusable(false);
+        backButton.setBorderPainted(false);
+        backButton.setBounds(5, 5, 50, 50);
+
+        backButton.addActionListener(e -> {
+            frame.dispose();
+            try {
+                new MAIN_PAGE();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        return backButton;
     }
 }
 
