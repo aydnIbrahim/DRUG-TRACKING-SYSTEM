@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="İlaç Takip Sistemi">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_sdk_17_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="DRUG TRACKING SYSTEM">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MAIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MAIN_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QUERY_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QUERY_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAVE_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAVE_PAGE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LOGIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LOGIN_PAGE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SIGNUP_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SIGNUP_PAGE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +118,8 @@
       <workItem from="1702598876925" duration="32000" />
       <workItem from="1702627507977" duration="21390000" />
       <workItem from="1702680268705" duration="10167000" />
-      <workItem from="1702731249510" duration="140000" />
+      <workItem from="1702731249510" duration="343000" />
+      <workItem from="1702747141627" duration="116000" />
     </task>
     <task id="LOCAL-00001" summary="İlaç Takip Sistemi">
       <option name="closed" value="true" />
@@ -203,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702730639027</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="DRUG TRACKING SYSTEM">
+      <option name="closed" value="true" />
+      <created>1702731399961</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702731399961</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +217,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="İlaç Takip Sistemi" />
-    <option name="LAST_COMMIT_MESSAGE" value="İlaç Takip Sistemi" />
+    <MESSAGE value="DRUG TRACKING SYSTEM" />
+    <option name="LAST_COMMIT_MESSAGE" value="DRUG TRACKING SYSTEM" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

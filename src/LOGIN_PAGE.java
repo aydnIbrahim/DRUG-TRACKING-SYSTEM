@@ -87,9 +87,9 @@ public class LOGIN_PAGE {
     }
 
     private JButton getjButton(){
-        JButton signup_button = new JButton("DON'T HAVE AN ACCOUNT SIGN UP");
-        signup_button.setFont(new Font("Pt Mono", Font.BOLD, 8));
-        signup_button.setBounds(257, 320, 200, 30);
+        JButton signup_button = new JButton("DON'T HAVE AN ACCOUNT? SIGN UP");
+        signup_button.setFont(new Font("Pt Mono", Font.BOLD, 10));
+        signup_button.setBounds(257, 320, 220, 30);
 
         signup_button.addActionListener(e -> {
             new SIGNUP_PAGE();
