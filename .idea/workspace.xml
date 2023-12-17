@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="DRUG TRACKING SYSTEM">
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +117,8 @@
       <workItem from="1702680268705" duration="10167000" />
       <workItem from="1702731249510" duration="343000" />
       <workItem from="1702747141627" duration="7494000" />
-      <workItem from="1702756383496" duration="1170000" />
+      <workItem from="1702756383496" duration="1782000" />
+      <workItem from="1702808913409" duration="1650000" />
     </task>
     <task id="LOCAL-00001" summary="İlaç Takip Sistemi">
       <option name="closed" value="true" />
@@ -223,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702757540034</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="DRUG TRACKING SYSTEM">
+      <option name="closed" value="true" />
+      <created>1702757558306</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1702757558306</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
