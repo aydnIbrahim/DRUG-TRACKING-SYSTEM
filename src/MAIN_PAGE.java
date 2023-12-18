@@ -60,6 +60,7 @@ public class MAIN_PAGE {
     private JButton getQueryButton(){
         JButton saveButton = new JButton("QUERY");
         saveButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        saveButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         saveButton.setBounds(450, 230, 150, 30);
 
         saveButton.addActionListener(e -> {
@@ -77,6 +78,7 @@ public class MAIN_PAGE {
     private JButton getSaveButton(){
         JButton queryButton = new JButton("SAVE");
         queryButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        queryButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         queryButton.setBounds(450, 270, 150, 30);
 
         queryButton.addActionListener(e -> {
@@ -97,6 +99,7 @@ public class MAIN_PAGE {
         backButton.setBackground(new Color(32, 34,46));
         backButton.setFocusable(false);
         backButton.setBorderPainted(false);
+        backButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         backButton.setBounds(5, 5, 50, 50);
 
         backButton.addActionListener(e -> {

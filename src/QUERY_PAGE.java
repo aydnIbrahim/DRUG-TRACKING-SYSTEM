@@ -34,8 +34,8 @@ public class QUERY_PAGE {
         barcodeField.setCaretColor(new Color(37, 153, 252));
 
         JButton backButton = getBackButton();
-        JButton queryButton = getButton();
-        JButton removeButton = getjButton();
+        JButton queryButton = getQueryButton();
+        JButton removeButton = getRemoveButton();
 
         frame.add(imageLabel);
         frame.add(barcodeLabel);
@@ -55,9 +55,10 @@ public class QUERY_PAGE {
 
     }
 
-    public JButton getButton(){
+    public JButton getQueryButton(){
         JButton queryButton = new JButton("QUERY");
         queryButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        queryButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         queryButton.setBounds(450, 220, 150, 30);
 
         queryButton.addActionListener(e -> {
@@ -79,9 +80,10 @@ public class QUERY_PAGE {
         return queryButton;
     }
 
-    public JButton getjButton(){
+    public JButton getRemoveButton(){
         JButton removeButton = new JButton("DELETE");
         removeButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        removeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         removeButton.setBounds(450, 260, 150, 30);
 
         removeButton.addActionListener(e -> {
@@ -108,6 +110,7 @@ public class QUERY_PAGE {
         backButton.setBackground(new Color(32, 34,46));
         backButton.setFocusable(false);
         backButton.setBorderPainted(false);
+        backButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         backButton.setBounds(5, 5, 50, 50);
 
         backButton.addActionListener(e -> {

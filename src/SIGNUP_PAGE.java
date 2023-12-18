@@ -117,6 +117,7 @@ public class SIGNUP_PAGE {
     private JButton getSignupButton() {
         JButton signupButton = new JButton("SIGN UP");
         signupButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        signupButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         signupButton.setBounds(307, 270, 100, 30);
 
         signupButton.addActionListener(e -> {
@@ -150,14 +151,15 @@ public class SIGNUP_PAGE {
     }
 
     private JButton getSignInButton(){
-        JButton signup_button = new JButton("ALREADY HAVE AN ACCOUNT? SIGN IN");
-        signup_button.setFont(new Font("Pt Mono", Font.BOLD, 10));
-        signup_button.setForeground(Color.white);
-        signup_button.setBorderPainted(false);
-        signup_button.setFocusable(false);
-        signup_button.setBounds(235, 320, 250, 30);
+        JButton signingButton = new JButton("ALREADY HAVE AN ACCOUNT? SIGN IN");
+        signingButton.setFont(new Font("Pt Mono", Font.BOLD, 10));
+        signingButton.setForeground(Color.white);
+        signingButton.setBorderPainted(false);
+        signingButton.setFocusable(false);
+        signingButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        signingButton.setBounds(235, 320, 250, 30);
 
-        signup_button.addActionListener(e -> {
+        signingButton.addActionListener(e -> {
             try {
                 new LOGIN_PAGE();
             } catch (IOException ex) {
@@ -165,7 +167,7 @@ public class SIGNUP_PAGE {
             }
             frame.dispose();
         });
-        return signup_button;
+        return signingButton;
     }
 
     public JButton getBackButton() throws IOException {
@@ -174,6 +176,7 @@ public class SIGNUP_PAGE {
         backButton.setBackground(new Color(32, 34,46));
         backButton.setFocusable(false);
         backButton.setBorderPainted(false);
+        backButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         backButton.setBounds(5, 5, 50, 50);
 
         backButton.addActionListener(e -> {
@@ -194,6 +197,7 @@ public class SIGNUP_PAGE {
         eyeButton.setBorder(BorderFactory.createEmptyBorder());
         eyeButton.setContentAreaFilled(false);
         eyeButton.setBackground(new Color(255, 255, 255));
+        eyeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         eyeButton.setBounds(513, 170, 40, 40);
 
         eyeButton.addActionListener(e -> {
@@ -211,6 +215,7 @@ public class SIGNUP_PAGE {
         eyeSlashButton.setBorder(BorderFactory.createEmptyBorder());
         eyeSlashButton.setContentAreaFilled(false);
         eyeSlashButton.setBackground(new Color(255, 255, 255));
+        eyeSlashButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         eyeSlashButton.setBounds(513, 170, 40, 40);
 
         eyeSlashButton.setVisible(false);
@@ -230,6 +235,7 @@ public class SIGNUP_PAGE {
         eyeButton.setBorder(BorderFactory.createEmptyBorder());
         eyeButton.setContentAreaFilled(false);
         eyeButton.setBackground(new Color(255, 255, 255));
+        eyeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         eyeButton.setBounds(513, 200, 40, 40);
 
         eyeButton.addActionListener(e -> {
@@ -247,6 +253,7 @@ public class SIGNUP_PAGE {
         eyeSlashButton.setBorder(BorderFactory.createEmptyBorder());
         eyeSlashButton.setContentAreaFilled(false);
         eyeSlashButton.setBackground(new Color(255, 255, 255));
+        eyeSlashButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         eyeSlashButton.setBounds(513, 200, 40, 40);
 
         eyeSlashButton.setVisible(false);

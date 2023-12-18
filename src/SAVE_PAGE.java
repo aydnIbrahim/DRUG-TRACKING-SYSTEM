@@ -60,7 +60,7 @@ public class SAVE_PAGE {
         priceField.setCaretColor(new Color(37, 153, 252));
 
         JButton backButton = getBackButton();
-        JButton saveButton = getButton();
+        JButton saveButton = getSaveButton();
 
         frame.add(imageLabel);
         frame.add(nameLabel);
@@ -82,9 +82,10 @@ public class SAVE_PAGE {
         frame.setVisible(true);
     }
 
-    private JButton getButton(){
+    private JButton getSaveButton(){
         JButton saveButton = new JButton("SAVE");
         saveButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        saveButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         saveButton.setBounds(450, 250, 150, 30);
 
         saveButton.addActionListener(e -> {
@@ -122,6 +123,7 @@ public class SAVE_PAGE {
         backButton.setBackground(new Color(32, 34,46));
         backButton.setFocusable(false);
         backButton.setBorderPainted(false);
+        backButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         backButton.setBounds(5, 5, 50, 50);
 
         backButton.addActionListener(e -> {

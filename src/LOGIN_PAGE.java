@@ -86,6 +86,7 @@ public class LOGIN_PAGE {
     private JButton getLoginButton() {
         JButton login_button = new JButton("LOGIN");
         login_button.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        login_button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         login_button.setBounds(307, 270, 100, 30);
 
         login_button.addActionListener(e -> {
@@ -112,6 +113,7 @@ public class LOGIN_PAGE {
         signup_button.setForeground(Color.white);
         signup_button.setBorderPainted(false);
         signup_button.setFocusable(false);
+        signup_button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         signup_button.setBounds(235, 320, 250, 30);
 
         signup_button.addActionListener(e -> {
@@ -131,6 +133,7 @@ public class LOGIN_PAGE {
         eyeButton.setBorder(BorderFactory.createEmptyBorder());
         eyeButton.setContentAreaFilled(false);
         eyeButton.setBackground(new Color(255, 255, 255));
+        eyeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         eyeButton.setBounds(490, 195, 40, 40);
 
         eyeButton.addActionListener(e -> {
@@ -148,6 +151,7 @@ public class LOGIN_PAGE {
         eyeSlashButton.setBorder(BorderFactory.createEmptyBorder());
         eyeSlashButton.setContentAreaFilled(false);
         eyeSlashButton.setBackground(new Color(255, 255, 255));
+        eyeSlashButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         eyeSlashButton.setBounds(490, 195, 40, 40);
 
         eyeSlashButton.setVisible(false);
