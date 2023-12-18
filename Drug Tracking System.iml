@@ -17,7 +17,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="javax.mail.api" level="project" />
+    <orderEntry type="library" name="javax.mail.api" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
@@ -36,6 +36,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="sun.mail.javax" level="project" />
+    <orderEntry type="library" name="sun.mail.javax" level="project" />
   </component>
 </module>

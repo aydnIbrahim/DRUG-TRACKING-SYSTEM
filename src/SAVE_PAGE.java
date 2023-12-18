@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class SAVE_PAGE {
     private final JFrame frame;
-    private final JTextField nameField;
+    private final JTextField emailField;
     private final JTextField barcodeField;
     private final JTextField priceField;
 
@@ -18,7 +18,7 @@ public class SAVE_PAGE {
 
         frame = new JFrame();
 
-        BufferedImage image = ImageIO.read(new File("Resources/savePageImage.jpg"));
+        BufferedImage image = ImageIO.read(new File("Resources/savePageImage.png"));
 
         JLabel imageLabel = new JLabel(new ImageIcon(image));
         imageLabel.setBounds(50, 50, 300, 300);
@@ -38,14 +38,26 @@ public class SAVE_PAGE {
         priceLabel.setForeground(new Color(37, 153, 252));
         priceLabel.setBounds(385, 170, 100, 30);
 
-        nameField = new JTextField();
-        nameField.setBounds(485, 110, 120, 30);
+        emailField = new JTextField();
+        emailField.setBounds(485, 110, 120, 30);
+        emailField.setBackground(new Color(32, 34, 46));
+        emailField.setForeground(Color.white);
+        emailField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        emailField.setCaretColor(new Color(37, 153, 252));
 
         barcodeField = new JTextField();
         barcodeField.setBounds(485, 140, 120, 30);
+        barcodeField.setBackground(new Color(32, 34, 46));
+        barcodeField.setForeground(Color.white);
+        barcodeField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        barcodeField.setCaretColor(new Color(37, 153, 252));
 
         priceField = new JTextField();
         priceField.setBounds(485, 170, 120, 30);
+        priceField.setBackground(new Color(32, 34, 46));
+        priceField.setForeground(Color.white);
+        priceField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        priceField.setCaretColor(new Color(37, 153, 252));
 
         JButton backButton = getBackButton();
         JButton saveButton = getButton();
@@ -54,7 +66,7 @@ public class SAVE_PAGE {
         frame.add(nameLabel);
         frame.add(barcodeLabel);
         frame.add(priceLabel);
-        frame.add(nameField);
+        frame.add(emailField);
         frame.add(barcodeField);
         frame.add(priceField);
         frame.add(saveButton);
@@ -77,7 +89,7 @@ public class SAVE_PAGE {
 
         saveButton.addActionListener(e -> {
             DTS_DAO dtsDao = new DTS_DAO();
-            String name = nameField.getText();
+            String name = emailField.getText();
             String barcode = barcodeField.getText();
             String price = priceField.getText();
 

@@ -12,7 +12,7 @@ public class MAIN_PAGE {
     public MAIN_PAGE() throws IOException {
 
         frame = new JFrame();
-        BufferedImage image = ImageIO.read(new File("Resources/mainPageImage.jpg"));
+        BufferedImage image = ImageIO.read(new File("Resources/mainPageImage.png"));
 
         JLabel imageLabel = new JLabel(new ImageIcon(image));
         imageLabel.setBounds(50,50, 300, 300);
@@ -36,8 +36,8 @@ public class MAIN_PAGE {
         queryArea.setWrapStyleWord(true);
 
         JButton backButton = getBackButton();
-        JButton saveButton = getQueryButton();
-        JButton queryButton = getSaveButton();
+        JButton saveButton = getSaveButton();
+        JButton queryButton = getQueryButton();
 
         frame.add(backButton);
         frame.add(imageLabel);

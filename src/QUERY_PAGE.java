@@ -16,7 +16,7 @@ public class QUERY_PAGE {
 
         frame = new JFrame();
 
-        BufferedImage image = ImageIO.read(new File("Resources/queryPageImage.jpg"));
+        BufferedImage image = ImageIO.read(new File("Resources/queryPageImage.png"));
 
         JLabel imageLabel = new JLabel(new ImageIcon(image));
         imageLabel.setBounds(50, 50, 300, 300);
@@ -28,6 +28,10 @@ public class QUERY_PAGE {
 
         barcodeField = new JTextField();
         barcodeField.setBounds(485, 110, 120, 30);
+        barcodeField.setBackground(new Color(32, 34, 46));
+        barcodeField.setForeground(Color.white);
+        barcodeField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        barcodeField.setCaretColor(new Color(37, 153, 252));
 
         JButton backButton = getBackButton();
         JButton queryButton = getButton();

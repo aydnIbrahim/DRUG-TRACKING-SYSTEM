@@ -1,5 +1,8 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -8,6 +11,10 @@ public class LOGIN_PAGE {
     private final JFrame frame;
     private final JPasswordField passwordField;
     private final JTextField emailField;
+    JButton eyeButton = getEyeButton();
+    JButton eyeSlashButton = getEyeSlashButton();
+    BufferedImage eye;
+    BufferedImage eyeSlash = ImageIO.read(new File("Resources/eye.slash.png"));
 
 
     public LOGIN_PAGE() throws IOException{
@@ -35,15 +42,25 @@ public class LOGIN_PAGE {
         passwordLabel.setBounds(252, 200, 100, 30);
 
         emailField = new JTextField();
-        emailField.setBounds(352, 170, 100, 30);
+        emailField.setBounds(352, 170, 175, 30);
+        emailField.setBackground(new Color(32, 34, 46));
+        emailField.setForeground(Color.white);
+        emailField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        emailField.setCaretColor(new Color(37, 153, 252));
 
         passwordField = new JPasswordField();
-        passwordField.setBounds(352, 200, 100, 30);
+        passwordField.setBounds(352, 200, 175, 30);
         passwordField.setEchoChar('*');
+        passwordField.setBackground(new Color(32, 34, 46));
+        passwordField.setForeground(Color.white);
+        passwordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        passwordField.setCaretColor(new Color(37, 153, 252));
 
         JButton login_button = getLoginButton();
         JButton signup_button = getSignupButton();
 
+        frame.add(eyeButton);
+        frame.add(eyeSlashButton);
         frame.add(titleLabel1);
         frame.add(titleLabel2);
         frame.add(emailLabel);
@@ -64,6 +81,7 @@ public class LOGIN_PAGE {
         frame.setLayout(null);
         frame.setVisible(true);
     }
+
 
     private JButton getLoginButton() {
         JButton login_button = new JButton("LOGIN");
@@ -105,6 +123,42 @@ public class LOGIN_PAGE {
             frame.dispose();
         });
         return signup_button;
+    }
+
+    private JButton getEyeButton() throws IOException {
+        eye = ImageIO.read(new File("Resources/eye.png"));
+        JButton eyeButton = new JButton(new ImageIcon(eye));
+        eyeButton.setBorder(BorderFactory.createEmptyBorder());
+        eyeButton.setContentAreaFilled(false);
+        eyeButton.setBackground(new Color(255, 255, 255));
+        eyeButton.setBounds(490, 195, 40, 40);
+
+        eyeButton.addActionListener(e -> {
+            passwordField.setEchoChar((char)0);
+            eyeButton.setVisible(false);
+            eyeSlashButton.setVisible(true);
+        });
+
+        return eyeButton;
+    }
+
+    private JButton getEyeSlashButton() throws IOException {
+        eyeSlash = ImageIO.read(new File("Resources/eye.slash.png"));
+        JButton eyeSlashButton = new JButton(new ImageIcon(eyeSlash));
+        eyeSlashButton.setBorder(BorderFactory.createEmptyBorder());
+        eyeSlashButton.setContentAreaFilled(false);
+        eyeSlashButton.setBackground(new Color(255, 255, 255));
+        eyeSlashButton.setBounds(490, 195, 40, 40);
+
+        eyeSlashButton.setVisible(false);
+
+        eyeSlashButton.addActionListener(e -> {
+            passwordField.setEchoChar('*');
+            eyeSlashButton.setVisible(false);
+            eyeButton.setVisible(true);
+        });
+
+        return eyeSlashButton;
     }
 
 }

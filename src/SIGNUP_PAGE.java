@@ -14,6 +14,13 @@ public class SIGNUP_PAGE {
     private final JTextField emailField;
     private final JPasswordField passwordField;
     private final JPasswordField confirmPasswordField;
+    JButton eyeButtonPassword = getEyeButtonPassword();
+    JButton eyeSlashButtonPassword = getEyeSlashButtonPassword();
+    JButton eyeButtonConfirmPassword = getEyeButtonConfirmPassword();
+    JButton eyeSlashButtonConfirmPassword = getEyeSlashButtonConfirmPassword();
+
+    BufferedImage eye;
+    BufferedImage eyeSlash = ImageIO.read(new File("Resources/eye.slash.png"));
 
     public SIGNUP_PAGE() throws IOException {
 
@@ -45,24 +52,44 @@ public class SIGNUP_PAGE {
         confirmPasswordLabel.setBounds(200, 205, 200, 30);
 
         companyNameField = new JTextField();
-        companyNameField.setBounds(375, 115, 100, 30);
+        companyNameField.setBounds(375, 115, 175, 30);
+        companyNameField.setBackground(new Color(32, 34, 46));
+        companyNameField.setForeground(Color.white);
+        companyNameField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        companyNameField.setCaretColor(new Color(37, 153, 252));
 
         emailField = new JTextField();
-        emailField.setBounds(375, 145, 100, 30);
+        emailField.setBounds(375, 145, 175, 30);
+        emailField.setBackground(new Color(32, 34, 46));
+        emailField.setForeground(Color.white);
+        emailField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        emailField.setCaretColor(new Color(37, 153, 252));
 
         passwordField = new JPasswordField();
-        passwordField.setBounds(375, 175, 100, 30);
+        passwordField.setBounds(375, 175, 175, 30);
         passwordField.setEchoChar('*');
+        passwordField.setBackground(new Color(32, 34, 46));
+        passwordField.setForeground(Color.white);
+        passwordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        passwordField.setCaretColor(new Color(37, 153, 252));
 
         confirmPasswordField = new JPasswordField();
-        confirmPasswordField.setBounds(375, 205, 100, 30);
+        confirmPasswordField.setBounds(375, 205, 175, 30);
         confirmPasswordField.setEchoChar('*');
+        confirmPasswordField.setBackground(new Color(32, 34, 46));
+        confirmPasswordField.setForeground(Color.white);
+        confirmPasswordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        confirmPasswordField.setCaretColor(new Color(37, 153, 252));
 
         JButton backButton = getBackButton();
 
         JButton signupButton = getSignupButton();
         JButton login_button = getSignInButton();
 
+        frame.add(eyeButtonPassword);
+        frame.add(eyeSlashButtonPassword);
+        frame.add(eyeButtonConfirmPassword);
+        frame.add(eyeSlashButtonConfirmPassword);
         frame.add(titleLabel);
         frame.add(companyNameLabel);
         frame.add(emailLabel);
@@ -159,5 +186,77 @@ public class SIGNUP_PAGE {
         });
 
         return backButton;
+    }
+
+    private JButton getEyeButtonPassword() throws IOException {
+        eye = ImageIO.read(new File("Resources/eye.png"));
+        JButton eyeButton = new JButton(new ImageIcon(eye));
+        eyeButton.setBorder(BorderFactory.createEmptyBorder());
+        eyeButton.setContentAreaFilled(false);
+        eyeButton.setBackground(new Color(255, 255, 255));
+        eyeButton.setBounds(513, 170, 40, 40);
+
+        eyeButton.addActionListener(e -> {
+            passwordField.setEchoChar((char)0);
+            eyeButton.setVisible(false);
+            eyeSlashButtonPassword.setVisible(true);
+        });
+
+        return eyeButton;
+    }
+
+    private JButton getEyeSlashButtonPassword() throws IOException {
+        eyeSlash = ImageIO.read(new File("Resources/eye.slash.png"));
+        JButton eyeSlashButton = new JButton(new ImageIcon(eyeSlash));
+        eyeSlashButton.setBorder(BorderFactory.createEmptyBorder());
+        eyeSlashButton.setContentAreaFilled(false);
+        eyeSlashButton.setBackground(new Color(255, 255, 255));
+        eyeSlashButton.setBounds(513, 170, 40, 40);
+
+        eyeSlashButton.setVisible(false);
+
+        eyeSlashButton.addActionListener(e -> {
+            passwordField.setEchoChar('*');
+            eyeSlashButton.setVisible(false);
+            eyeButtonPassword.setVisible(true);
+        });
+
+        return eyeSlashButton;
+    }
+
+    private JButton getEyeButtonConfirmPassword() throws IOException {
+        eye = ImageIO.read(new File("Resources/eye.png"));
+        JButton eyeButton = new JButton(new ImageIcon(eye));
+        eyeButton.setBorder(BorderFactory.createEmptyBorder());
+        eyeButton.setContentAreaFilled(false);
+        eyeButton.setBackground(new Color(255, 255, 255));
+        eyeButton.setBounds(513, 200, 40, 40);
+
+        eyeButton.addActionListener(e -> {
+            confirmPasswordField.setEchoChar((char)0);
+            eyeButton.setVisible(false);
+            eyeSlashButtonConfirmPassword.setVisible(true);
+        });
+
+        return eyeButton;
+    }
+
+    private JButton getEyeSlashButtonConfirmPassword() throws IOException {
+        eyeSlash = ImageIO.read(new File("Resources/eye.slash.png"));
+        JButton eyeSlashButton = new JButton(new ImageIcon(eyeSlash));
+        eyeSlashButton.setBorder(BorderFactory.createEmptyBorder());
+        eyeSlashButton.setContentAreaFilled(false);
+        eyeSlashButton.setBackground(new Color(255, 255, 255));
+        eyeSlashButton.setBounds(513, 200, 40, 40);
+
+        eyeSlashButton.setVisible(false);
+
+        eyeSlashButton.addActionListener(e -> {
+            confirmPasswordField.setEchoChar('*');
+            eyeSlashButton.setVisible(false);
+            eyeButtonConfirmPassword.setVisible(true);
+        });
+
+        return eyeSlashButton;
     }
 }
