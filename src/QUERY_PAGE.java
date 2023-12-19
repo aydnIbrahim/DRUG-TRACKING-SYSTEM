@@ -47,7 +47,7 @@ public class QUERY_PAGE {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 428);
         frame.setResizable(false);
-        frame.setTitle("SAVE");
+        frame.setTitle("QUERY");
         frame.getContentPane().setBackground(new Color(32, 34,46));
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);

@@ -65,7 +65,7 @@ public class MAIN_PAGE {
 
         saveButton.addActionListener(e -> {
             try {
-                new SAVE_PAGE();
+                new QUERY_PAGE();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -83,7 +83,7 @@ public class MAIN_PAGE {
 
         queryButton.addActionListener(e -> {
             try {
-                new QUERY_PAGE();
+                new SAVE_PAGE();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

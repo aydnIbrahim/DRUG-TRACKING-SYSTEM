@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="DRUG TRACKING SYSTEM">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LOGIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LOGIN_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MAIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MAIN_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QUERY_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QUERY_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAVE_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAVE_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SIGNUP_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SIGNUP_PAGE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +122,8 @@
       <workItem from="1702824201150" duration="1107000" />
       <workItem from="1702835432394" duration="599000" />
       <workItem from="1702838450973" duration="14000" />
-      <workItem from="1702923145704" duration="7810000" />
+      <workItem from="1702923145704" duration="7833000" />
+      <workItem from="1703012806185" duration="104000" />
     </task>
     <task id="LOCAL-00001" summary="İlaç Takip Sistemi">
       <option name="closed" value="true" />
@@ -258,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702930256972</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="DRUG TRACKING SYSTEM">
+      <option name="closed" value="true" />
+      <created>1702931017893</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1702931017893</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
