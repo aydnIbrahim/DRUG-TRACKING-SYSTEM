@@ -99,6 +99,7 @@ public class LOGIN_PAGE {
             try {
                 boolean r = itsDao.control(emailField.getText(), password);
                 if (r){
+                    USER_INFO userInfo = new USER_INFO(emailField.getText(), String.valueOf(password));
                     new MAIN_PAGE();
                     frame.dispose();
                 }

@@ -24,7 +24,6 @@ public class DTS_DAO {
         return result.next();
     }
 
-
     public void add(String name, String barcode, String p, String type) throws ClassNotFoundException, SQLException{
         int price = Integer.parseInt(p);
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -106,5 +105,26 @@ public class DTS_DAO {
         }
         return drugInfo;
     }
+
+    public void changeEmail(String previousEmail, String newEmail) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(url, this.username, passwd);
+        String query = "SELECT email FROM login WHERE email = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, previousEmail);
+        ResultSet rs = statement.executeQuery();
+
+        if (rs.next()){
+            String email = rs.getString("email");
+            // update query
+            String update = "UPDATE login SET email = ? WHERE email = ?";
+            PreparedStatement updateStatement = connection.prepareStatement(update);
+            updateStatement.setString(1, newEmail);
+            updateStatement.setString(2, previousEmail);
+            int rows = updateStatement.executeUpdate();
+
+        }
+    }
+
 
 }
