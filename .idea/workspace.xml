@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="DRUG TRACKING SYSTEM">
-      <change afterPath="$PROJECT_DIR$/src/Drug/Drug.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Drug/Pill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Drug/Syrup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Windows/ACCOUNT_PAGE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTS_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/DTS_DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LOGIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/LOGIN_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MAIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/MAIN_PAGE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/QUERY_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/QUERY_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SAVE_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/SAVE_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SIGNUP_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/SIGNUP_PAGE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Windows/LOGIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/LOGIN_PAGE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Windows/SIGNUP_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/SIGNUP_PAGE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +56,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ibrahimaydin/Desktop/Ilac_takip_sistemi/Resources&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ibrahimaydin/Desktop/Ilac_takip_sistemi&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -135,7 +129,12 @@
       <workItem from="1702923145704" duration="7833000" />
       <workItem from="1703012806185" duration="259000" />
       <workItem from="1703050567259" duration="1603000" />
-      <workItem from="1703053096373" duration="1702000" />
+      <workItem from="1703053096373" duration="1818000" />
+      <workItem from="1703057369402" duration="2076000" />
+      <workItem from="1703059520418" duration="35000" />
+      <workItem from="1703059953539" duration="1774000" />
+      <workItem from="1703064176213" duration="1401000" />
+      <workItem from="1703065590041" duration="1742000" />
     </task>
     <task id="LOCAL-00001" summary="İlaç Takip Sistemi">
       <option name="closed" value="true" />
@@ -289,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703053110394</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="DRUG TRACKING SYSTEM">
+      <option name="closed" value="true" />
+      <created>1703054815400</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1703054815400</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

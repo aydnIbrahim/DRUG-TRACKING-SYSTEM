@@ -79,7 +79,7 @@ public class LOGIN_PAGE {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 400);
         frame.setResizable(false);
-        frame.setTitle("Drug.Drug Tracking System");
+        frame.setTitle("Drug Tracking System");
         frame.getContentPane().setBackground(new Color(32, 34,46));
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
