@@ -14,7 +14,7 @@ public class DTS_DAO {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, this.username, passwd);
-        String query = "SELECT * FROM ilac WHERE barkod = ?";
+        String query = "SELECT * FROM drugs WHERE barkod = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, barcode);
         ResultSet result = statement.executeQuery();
@@ -23,16 +23,17 @@ public class DTS_DAO {
     }
 
 
-    public void add(String name, String barcode, String p) throws ClassNotFoundException, SQLException{
+    public void add(String name, String barcode, String p, String type) throws ClassNotFoundException, SQLException{
         int price = Integer.parseInt(p);
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, username, passwd);
-        String sql = "INSERT INTO ilac (name, barkod, price) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO drugs (name, barkod, price, type) VALUES (?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(sql);
 
         ps.setString(1, name);
         ps.setString(2, barcode);
         ps.setInt(3, price);
+        ps.setString(4, type);
         ps.executeUpdate();
         ps.close();
         connection.close();
@@ -41,7 +42,7 @@ public class DTS_DAO {
     public boolean remove(String barcode) throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, username, passwd);
-        String query = "DELETE FROM ilac WHERE barkod = ?";
+        String query = "DELETE FROM drugs WHERE barkod = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, barcode);
         int rows = statement.executeUpdate();
@@ -89,7 +90,7 @@ public class DTS_DAO {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, this.username, passwd);
-        String query = "SELECT name, barkod, price FROM ilac WHERE barkod = ?";
+        String query = "SELECT name, barkod, price FROM drugs WHERE barkod = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, barcode);
         ResultSet rs = statement.executeQuery();

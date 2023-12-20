@@ -88,7 +88,20 @@ public class SAVE_PAGE {
         saveButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         saveButton.setBounds(450, 250, 150, 30);
 
+
         saveButton.addActionListener(e -> {
+
+            int selection  = JOptionPane.showOptionDialog(
+                    frame,
+                    "Choose your drug type",
+                    "Drug Type", // title
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    new Object[] {"Pill", "Syrup"},
+                    "Pill"
+            );
+
             DTS_DAO dtsDao = new DTS_DAO();
             String name = emailField.getText();
             String barcode = barcodeField.getText();
@@ -104,8 +117,14 @@ public class SAVE_PAGE {
                 else if (dtsDao.query(barcode))
                     JOptionPane.showMessageDialog(frame, "The barcode has been added before.", "PRICE ERROR", JOptionPane.ERROR_MESSAGE);
                 else{
-                    dtsDao.add(name, barcode, price);
-                    JOptionPane.showMessageDialog(frame, "The barcode has been added successfully.", "BARCODE ADDED", JOptionPane.INFORMATION_MESSAGE);
+
+                    if (selection == 1) {
+                        dtsDao.add(name, barcode, price, "syrup");
+                        JOptionPane.showMessageDialog(frame, "The barcode has been added successfully.", "BARCODE ADDED", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        dtsDao.add(name, barcode, price, "pill");
+                        JOptionPane.showMessageDialog(frame, "The barcode has been added successfully.", "BARCODE ADDED", JOptionPane.INFORMATION_MESSAGE);
+                    }
                 }
 
             } catch (SQLException | ClassNotFoundException ex) {

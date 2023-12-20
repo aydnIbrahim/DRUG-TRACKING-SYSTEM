@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="DRUG TRACKING SYSTEM">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTS_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTS_DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SAVE_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SAVE_PAGE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +125,9 @@
       <workItem from="1702835432394" duration="599000" />
       <workItem from="1702838450973" duration="14000" />
       <workItem from="1702923145704" duration="7833000" />
-      <workItem from="1703012806185" duration="104000" />
+      <workItem from="1703012806185" duration="259000" />
+      <workItem from="1703050567259" duration="1603000" />
+      <workItem from="1703053096373" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="İlaç Takip Sistemi">
       <option name="closed" value="true" />
@@ -261,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702931017893</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="DRUG TRACKING SYSTEM">
+      <option name="closed" value="true" />
+      <created>1703013044371</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1703013044371</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
