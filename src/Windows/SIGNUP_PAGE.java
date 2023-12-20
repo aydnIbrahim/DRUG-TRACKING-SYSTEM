@@ -1,3 +1,7 @@
+package Windows;
+
+import Database.DTS_DAO;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -107,7 +111,7 @@ public class SIGNUP_PAGE {
 
         frame.setSize(700, 400);
         frame.setResizable(false);
-        frame.setTitle("Drug Tracking System");
+        frame.setTitle("Drug.Drug Tracking System");
         frame.getContentPane().setBackground(new Color(32, 34,46));
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);

@@ -1,3 +1,9 @@
+package Windows;
+
+import Database.DTS_DAO;
+import Drug.Pill;
+import Drug.Syrup;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -72,6 +78,8 @@ public class SAVE_PAGE {
         frame.add(saveButton);
         frame.add(backButton);
 
+        SwingUtilities.getRootPane(saveButton).setDefaultButton(saveButton);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 428);
         frame.setResizable(false);
@@ -119,10 +127,14 @@ public class SAVE_PAGE {
                 else{
 
                     if (selection == 1) {
-                        dtsDao.add(name, barcode, price, "syrup");
+                        Syrup syrup = new Syrup(name, barcode, price);
+
+                        dtsDao.add(syrup.getName(), syrup.getBarcode(), syrup.getPrice(), syrup.getType());
                         JOptionPane.showMessageDialog(frame, "The barcode has been added successfully.", "BARCODE ADDED", JOptionPane.INFORMATION_MESSAGE);
                     } else {
-                        dtsDao.add(name, barcode, price, "pill");
+                        Pill pill = new Pill(name, barcode, price);
+
+                        dtsDao.add(pill.getName(), pill.getBarcode(), pill.getPrice(), pill.getType());
                         JOptionPane.showMessageDialog(frame, "The barcode has been added successfully.", "BARCODE ADDED", JOptionPane.INFORMATION_MESSAGE);
                     }
                 }

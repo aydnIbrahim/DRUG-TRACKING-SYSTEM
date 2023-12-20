@@ -1,3 +1,7 @@
+package Windows;
+
+import Database.DTS_DAO;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -43,6 +47,8 @@ public class QUERY_PAGE {
         frame.add(queryButton);
         frame.add(removeButton);
         frame.add(backButton);
+
+        SwingUtilities.getRootPane(queryButton).setDefaultButton(queryButton);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 428);
