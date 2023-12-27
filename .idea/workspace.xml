@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="DRUG TRACKING SYSTEM">
-      <change afterPath="$PROJECT_DIR$/src/Windows/USER_INFO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database/DTS_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/DTS_DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Windows/ACCOUNT_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/ACCOUNT_PAGE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Windows/LOGIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/LOGIN_PAGE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Windows/MAIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/MAIN_PAGE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Windows/USER_INFO.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +138,9 @@
       <workItem from="1703064176213" duration="1401000" />
       <workItem from="1703065590041" duration="1787000" />
       <workItem from="1703091111658" duration="2383000" />
-      <workItem from="1703093529406" duration="3952000" />
+      <workItem from="1703093529406" duration="3960000" />
+      <workItem from="1703138056105" duration="989000" />
+      <workItem from="1703628980564" duration="5059000" />
     </task>
     <task id="LOCAL-00001" summary="İlaç Takip Sistemi">
       <option name="closed" value="true" />
@@ -307,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703067339887</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="DRUG TRACKING SYSTEM">
+      <option name="closed" value="true" />
+      <created>1703097654723</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1703097654723</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,17 +328,6 @@
     <MESSAGE value="İlaç Takip Sistemi" />
     <MESSAGE value="DRUG TRACKING SYSTEM" />
     <option name="LAST_COMMIT_MESSAGE" value="DRUG TRACKING SYSTEM" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Database/DTS_DAO.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

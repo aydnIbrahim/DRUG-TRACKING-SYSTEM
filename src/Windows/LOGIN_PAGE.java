@@ -18,7 +18,7 @@ public class LOGIN_PAGE {
     JButton eyeButton = getEyeButton();
     JButton eyeSlashButton = getEyeSlashButton();
     BufferedImage eye;
-    BufferedImage eyeSlash = ImageIO.read(new File("Resources/eye.slash.png"));
+    BufferedImage eyeSlash;
 
 
     public LOGIN_PAGE() throws IOException{
@@ -99,7 +99,6 @@ public class LOGIN_PAGE {
             try {
                 boolean r = itsDao.control(emailField.getText(), password);
                 if (r){
-                    USER_INFO userInfo = new USER_INFO(emailField.getText(), String.valueOf(password));
                     new MAIN_PAGE();
                     frame.dispose();
                 }

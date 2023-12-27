@@ -20,11 +20,17 @@ import java.util.ArrayList;
 public class ACCOUNT_PAGE {
 
     private BufferedImage photo;
-    private JTextField changeEmailField;
+    private final JTextField changeEmailField;
+    private final JPasswordField changePasswordField;
+    private final JFrame frame;
+    JButton eyeButton = getEyeButton();
+    JButton eyeSlashButton = getEyeSlashButton();
+    BufferedImage eye;
+    BufferedImage eyeSlash;
 
     public ACCOUNT_PAGE() throws IOException {
 
-        JFrame frame = new JFrame();
+        frame = new JFrame();
 
         BufferedImage ppMask = ImageIO.read(new File("Resources/ppMask.png"));
 
@@ -42,7 +48,7 @@ public class ACCOUNT_PAGE {
         StyleConstants.setBold(center, true);
         StyleConstants.setForeground(center, new Color(202, 204, 220));
         namePane.setText(name);
-        namePane.setBounds(250, 110, 200, 100);
+        namePane.setBounds(250, 110, 200, 30);
         namePane.setBackground(new Color(32, 34,46));
         namePane.setEditable(false);
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
@@ -53,14 +59,26 @@ public class ACCOUNT_PAGE {
         JButton deleteAccountButton = getDeleteAccountButton();
 
         changeEmailField = new JTextField();
-        changeEmailField = new JTextField();
-        changeEmailField.setBounds(297, 145, 175, 30);
+        changeEmailField.setBounds(365, 160, 175, 30);
         changeEmailField.setBackground(new Color(32, 34, 46));
         changeEmailField.setForeground(Color.white);
         changeEmailField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
         changeEmailField.setCaretColor(new Color(37, 153, 252));
 
+        changePasswordField = new JPasswordField();
+        changePasswordField.setBounds(365, 200, 175, 30);
+        changePasswordField.setEchoChar('*');
+        changePasswordField.setBackground(new Color(32, 34, 46));
+        changePasswordField.setForeground(Color.white);
+        changePasswordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        changePasswordField.setCaretColor(new Color(37, 153, 252));
+
+        frame.add(eyeButton);
+        frame.add(eyeSlashButton);
+        frame.add(changePasswordField);
+        frame.add(changePasswordButton);
         frame.add(changeEmailField);
+        frame.add(changeEmailButton);
         frame.add(ppLabel);
         frame.add(ppButton);
         frame.add(namePane);
@@ -77,16 +95,17 @@ public class ACCOUNT_PAGE {
 
     private JButton getChangeEmailButton(){
         JButton changeEmailButton = new JButton("Change Your Email");
-        changeEmailButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        changeEmailButton.setFont(new Font("Pt Mono", Font.BOLD, 14));
         changeEmailButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        changeEmailButton.setBounds(275, 160, 150, 30);
+        changeEmailButton.setBounds(165, 160, 180, 30);
 
         changeEmailButton.addActionListener(e -> {
-            USER_INFO userInfo = new USER_INFO();
-            ArrayList<String> arrayList = userInfo.getInformation();
+            String currentEmail = JOptionPane.showInputDialog (frame, "Enter your current email", "Current Email Address", JOptionPane.QUESTION_MESSAGE);
             DTS_DAO dtsDao = new DTS_DAO();
             try {
-                dtsDao.changeEmail(arrayList.get(1), changeEmailField.getText());
+                boolean status = dtsDao.changeEmail(currentEmail, changeEmailField.getText());
+                if (status) JOptionPane.showMessageDialog(frame, "Your email has been updated.", "Successful", JOptionPane.INFORMATION_MESSAGE);
+                else JOptionPane.showMessageDialog(frame, "Email could not be changed.", "Failed", JOptionPane.ERROR_MESSAGE);
             } catch (ClassNotFoundException | SQLException ex) {
                 throw new RuntimeException(ex);
             }
@@ -96,10 +115,23 @@ public class ACCOUNT_PAGE {
     }
 
     private JButton getChangePasswordButton(){
-        JButton changePasswordButton = new JButton("Change Your Password");
-        changePasswordButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        JButton changePasswordButton = new JButton("Change Password");
+        changePasswordButton.setFont(new Font("Pt Mono", Font.BOLD, 14));
         changePasswordButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        changePasswordButton.setBounds(275, 200, 150, 30);
+        changePasswordButton.setBounds(165, 200, 180, 30);
+
+        changePasswordButton.addActionListener(e -> {
+            String currentPassword = JOptionPane.showInputDialog(frame, "Enter your current password.", "Current Password", JOptionPane.QUESTION_MESSAGE);
+            DTS_DAO dtsDao = new DTS_DAO();
+            try {
+                char[] newPassword = changePasswordField.getPassword();
+                boolean status = dtsDao.changePassword(currentPassword, newPassword);
+                if (status) JOptionPane.showMessageDialog(frame, "Your password has been changed.", "Successful", JOptionPane.INFORMATION_MESSAGE);
+                else JOptionPane.showMessageDialog(frame, "Your password could not be changed.", "Failed", JOptionPane.ERROR_MESSAGE);
+            } catch (ClassNotFoundException | SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
         return changePasswordButton;
     }
@@ -138,5 +170,42 @@ public class ACCOUNT_PAGE {
         return changePpButton;
     }
 
+    private JButton getEyeButton() throws IOException {
+        eye = ImageIO.read(new File("Resources/eye.png"));
+        JButton eyeButton = new JButton(new ImageIcon(eye));
+        eyeButton.setBorder(BorderFactory.createEmptyBorder());
+        eyeButton.setContentAreaFilled(false);
+        eyeButton.setBackground(new Color(255, 255, 255));
+        eyeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        eyeButton.setBounds(503, 180, 40, 40);
+
+        eyeButton.addActionListener(e -> {
+            changePasswordField.setEchoChar((char)0);
+            eyeButton.setVisible(false);
+            eyeSlashButton.setVisible(true);
+        });
+
+        return eyeButton;
+    }
+
+    private JButton getEyeSlashButton() throws IOException {
+        eyeSlash = ImageIO.read(new File("Resources/eye.slash.png"));
+        JButton eyeSlashButton = new JButton(new ImageIcon(eyeSlash));
+        eyeSlashButton.setBorder(BorderFactory.createEmptyBorder());
+        eyeSlashButton.setContentAreaFilled(false);
+        eyeSlashButton.setBackground(new Color(255, 255, 255));
+        eyeSlashButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        eyeSlashButton.setBounds(503, 180, 40, 40);
+
+        eyeSlashButton.setVisible(false);
+
+        eyeSlashButton.addActionListener(e -> {
+            changePasswordField.setEchoChar('*');
+            eyeSlashButton.setVisible(false);
+            eyeButton.setVisible(true);
+        });
+
+        return eyeSlashButton;
+    }
 
 }

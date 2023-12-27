@@ -106,25 +106,58 @@ public class DTS_DAO {
         return drugInfo;
     }
 
-    public void changeEmail(String previousEmail, String newEmail) throws ClassNotFoundException, SQLException {
+    public boolean changeEmail(String previousEmail, String newEmail) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, this.username, passwd);
-        String query = "SELECT email FROM login WHERE email = ?";
+        String query = "SELECT username FROM login WHERE username = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, previousEmail);
         ResultSet rs = statement.executeQuery();
 
         if (rs.next()){
-            String email = rs.getString("email");
-            // update query
-            String update = "UPDATE login SET email = ? WHERE email = ?";
+            String update = "UPDATE login SET username = ? WHERE username = ?";
             PreparedStatement updateStatement = connection.prepareStatement(update);
             updateStatement.setString(1, newEmail);
             updateStatement.setString(2, previousEmail);
-            int rows = updateStatement.executeUpdate();
-
+            updateStatement.executeUpdate();
+            return true;
         }
+        else return false;
     }
 
+    public boolean changePassword(String previousPassword, char[] newPassword) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(url, this.username, passwd);
+        String query = "SELECT password FROM login WHERE password = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, previousPassword);
+        ResultSet rs = statement.executeQuery();
 
+        if (rs.next()){
+            String update = "UPDATE login SET password = ? WHERE password = ?";
+            PreparedStatement updateStatement = connection.prepareStatement(update);
+            updateStatement.setString(1, String.valueOf(newPassword));
+            updateStatement.setString(2, previousPassword);
+            updateStatement.executeUpdate();
+            return true;
+        }
+        else return false;
+    }
+
+    public String getUserName(String email) throws ClassNotFoundException, SQLException {
+
+        String name = "";
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(url, this.username, passwd);
+        String query = "SELECT commpanyName FROM login WHERE username = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, email);
+        ResultSet rs = statement.executeQuery();
+
+        if (rs.next()){
+            name = rs.getString("companyName");
+        }
+        return name;
+    }
 }
