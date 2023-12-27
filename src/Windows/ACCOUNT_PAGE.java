@@ -15,8 +15,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
+// Hesap Sayfa Kodları
 public class ACCOUNT_PAGE {
 
     private BufferedImage photo;
@@ -34,9 +34,11 @@ public class ACCOUNT_PAGE {
 
         BufferedImage ppMask = ImageIO.read(new File("Resources/ppMask.png"));
 
+        // Profil resmi çerçevesi
         JLabel ppLabel = new JLabel(new ImageIcon(ppMask));
         ppLabel.setBounds(300, -1, 110, 110);
 
+        // Kullanıcı isim alanı
         JTextPane namePane = new JTextPane();
         StyledDocument doc = namePane.getStyledDocument();
         SimpleAttributeSet center = new SimpleAttributeSet();
@@ -51,12 +53,14 @@ public class ACCOUNT_PAGE {
         namePane.setEditable(false);
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
 
+        // Buton atamaları
         JButton ppButton = getPpButton();
         JButton changeEmailButton = getChangeEmailButton();
         JButton changePasswordButton = getChangePasswordButton();
         JButton deleteAccountButton = getDeleteAccountButton();
         JButton backButton = getBackButton();
 
+        // Yeni e-posta giriş alanı
         changeEmailField = new JTextField();
         changeEmailField.setBounds(365, 160, 175, 30);
         changeEmailField.setBackground(new Color(32, 34, 46));
@@ -64,6 +68,7 @@ public class ACCOUNT_PAGE {
         changeEmailField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
         changeEmailField.setCaretColor(new Color(37, 153, 252));
 
+        // Yeni şifre giriş alanı
         changePasswordField = new JPasswordField();
         changePasswordField.setBounds(365, 200, 175, 30);
         changePasswordField.setEchoChar('*');
@@ -72,6 +77,7 @@ public class ACCOUNT_PAGE {
         changePasswordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
         changePasswordField.setCaretColor(new Color(37, 153, 252));
 
+        // Bileşenlerin çerçeveye eklenmesi
         frame.add(deleteAccountButton);
         frame.add(backButton);
         frame.add(eyeButton);
@@ -84,6 +90,7 @@ public class ACCOUNT_PAGE {
         frame.add(ppButton);
         frame.add(namePane);
 
+        // Çerçeve ayarları
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 400);
         frame.setResizable(false);
@@ -94,6 +101,7 @@ public class ACCOUNT_PAGE {
         frame.setVisible(true);
     }
 
+    // E-Posta değiştirme butonu
     private JButton getChangeEmailButton(){
         JButton changeEmailButton = new JButton("Change Your Email");
         changeEmailButton.setFont(new Font("Pt Mono", Font.BOLD, 14));
@@ -115,6 +123,7 @@ public class ACCOUNT_PAGE {
         return changeEmailButton;
     }
 
+    // Şifre değiştirme butonu
     private JButton getChangePasswordButton(){
         JButton changePasswordButton = new JButton("Change Password");
         changePasswordButton.setFont(new Font("Pt Mono", Font.BOLD, 14));
@@ -137,6 +146,7 @@ public class ACCOUNT_PAGE {
         return changePasswordButton;
     }
 
+    // Hesap silme butonu
     private JButton getDeleteAccountButton(){
         JButton deleteAccountButton = new JButton("Delete Account");
         deleteAccountButton.setFont(new Font("Pt Mono", Font.BOLD, 14));
@@ -162,6 +172,7 @@ public class ACCOUNT_PAGE {
         return deleteAccountButton;
     }
 
+    // Profil resmi ayarlama butonu
     private JButton getPpButton() {
         JButton changePpButton = new JButton();
         changePpButton.setIcon(new ImageIcon("Resources/person.png"));
@@ -187,6 +198,7 @@ public class ACCOUNT_PAGE {
         return changePpButton;
     }
 
+    // Şifre görünür yapma butonu
     private JButton getEyeButton() throws IOException {
         eye = ImageIO.read(new File("Resources/eye.png"));
         JButton eyeButton = new JButton(new ImageIcon(eye));
@@ -205,6 +217,7 @@ public class ACCOUNT_PAGE {
         return eyeButton;
     }
 
+    // Şifre gizleme butonu
     private JButton getEyeSlashButton() throws IOException {
         eyeSlash = ImageIO.read(new File("Resources/eye.slash.png"));
         JButton eyeSlashButton = new JButton(new ImageIcon(eyeSlash));
@@ -225,6 +238,7 @@ public class ACCOUNT_PAGE {
         return eyeSlashButton;
     }
 
+    // Bir önceki sayfaya dönme butonu
     private JButton getBackButton() throws IOException {
         BufferedImage imageBack = ImageIO.read(new File("Resources/arrowshape.backward.png"));
         JButton backButton = new JButton(new ImageIcon(imageBack));

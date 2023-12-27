@@ -8,5 +8,6 @@ public class Main {
         new LOGIN_PAGE();
         //new ACCOUNT_PAGE();
         //new MAIN_PAGE();
+
     }
 }

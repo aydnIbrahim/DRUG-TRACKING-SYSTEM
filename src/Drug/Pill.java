@@ -1,5 +1,6 @@
 package Drug;
 
+// Hap ilaçlar
 public class Pill extends Drug{
 
     public Pill(String name, String barcode, String price) {
@@ -24,6 +25,6 @@ public class Pill extends Drug{
 
     @Override
     public String getType() {
-        return "Type";
+        return "Pill";
     }
 }

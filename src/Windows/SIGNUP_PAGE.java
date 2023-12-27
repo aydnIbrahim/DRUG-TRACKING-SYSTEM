@@ -11,10 +11,11 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Arrays;
 
+// Kayıt olma sayfası
 public class SIGNUP_PAGE {
 
     private final JFrame frame;
-    private final JTextField companyNameField;
+    private final JTextField nameField;
     private final JTextField emailField;
     private final JPasswordField passwordField;
     private final JPasswordField confirmPasswordField;
@@ -30,38 +31,45 @@ public class SIGNUP_PAGE {
 
         frame = new JFrame();
 
+        // Sayfa başlığı
         JLabel titleLabel = new JLabel("SIGN UP FORM");
         titleLabel.setFont(new Font("Pt Mono", Font.BOLD, 30));
         titleLabel.setForeground(new Color(202, 204, 220));
         titleLabel.setBounds(243, 30, 300, 50);
 
-        JLabel companyNameLabel = new JLabel("Company Name");
-        companyNameLabel.setFont(new Font("Pt Mono", Font.BOLD, 16));
-        companyNameLabel.setForeground(new Color(37, 153, 252));
-        companyNameLabel.setBounds(200, 115, 200, 30);
+        // İsim-Soyisim etiketi
+        JLabel nameLabel = new JLabel("Name - Surname");
+        nameLabel.setFont(new Font("Pt Mono", Font.BOLD, 16));
+        nameLabel.setForeground(new Color(37, 153, 252));
+        nameLabel.setBounds(200, 115, 200, 30);
 
+        // E-Posta etiketi
         JLabel emailLabel = new JLabel("Email");
         emailLabel.setFont(new Font("Pt Mono", Font.BOLD, 16));
         emailLabel.setForeground(new Color(37, 153, 252));
         emailLabel.setBounds(200, 145, 200, 30);
 
+        // Şifre etiketi
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setFont(new Font("Pt Mono", Font.BOLD, 16));
         passwordLabel.setForeground(new Color(37, 153, 252));
         passwordLabel.setBounds(200, 175, 200, 30);
 
+        // Şifre doğrulama etiketi
         JLabel confirmPasswordLabel = new JLabel("Confirm Password");
         confirmPasswordLabel.setFont(new Font("Pt Mono", Font.BOLD, 16));
         confirmPasswordLabel.setForeground(new Color(37, 153, 252));
         confirmPasswordLabel.setBounds(200, 205, 200, 30);
 
-        companyNameField = new JTextField();
-        companyNameField.setBounds(375, 115, 175, 30);
-        companyNameField.setBackground(new Color(32, 34, 46));
-        companyNameField.setForeground(Color.white);
-        companyNameField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
-        companyNameField.setCaretColor(new Color(37, 153, 252));
+        // İsim-Soyisim giriş alanı
+        nameField = new JTextField();
+        nameField.setBounds(375, 115, 175, 30);
+        nameField.setBackground(new Color(32, 34, 46));
+        nameField.setForeground(Color.white);
+        nameField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
+        nameField.setCaretColor(new Color(37, 153, 252));
 
+        // E-Posta giriş alanı
         emailField = new JTextField();
         emailField.setBounds(375, 145, 175, 30);
         emailField.setBackground(new Color(32, 34, 46));
@@ -69,6 +77,7 @@ public class SIGNUP_PAGE {
         emailField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
         emailField.setCaretColor(new Color(37, 153, 252));
 
+        // Şifre giriş alanı
         passwordField = new JPasswordField();
         passwordField.setBounds(375, 175, 175, 30);
         passwordField.setEchoChar('*');
@@ -77,6 +86,7 @@ public class SIGNUP_PAGE {
         passwordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
         passwordField.setCaretColor(new Color(37, 153, 252));
 
+        // Şifre doğrulama giriş alanı
         confirmPasswordField = new JPasswordField();
         confirmPasswordField.setBounds(375, 205, 175, 30);
         confirmPasswordField.setEchoChar('*');
@@ -85,21 +95,22 @@ public class SIGNUP_PAGE {
         confirmPasswordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
         confirmPasswordField.setCaretColor(new Color(37, 153, 252));
 
+        // Buton atamaları
         JButton backButton = getBackButton();
-
         JButton signupButton = getSignupButton();
         JButton login_button = getSignInButton();
 
+        // Bileşenlerin çerçeveye eklenmesi
         frame.add(eyeButtonPassword);
         frame.add(eyeSlashButtonPassword);
         frame.add(eyeButtonConfirmPassword);
         frame.add(eyeSlashButtonConfirmPassword);
         frame.add(titleLabel);
-        frame.add(companyNameLabel);
+        frame.add(nameLabel);
         frame.add(emailLabel);
         frame.add(passwordLabel);
         frame.add(confirmPasswordLabel);
-        frame.add(companyNameField);
+        frame.add(nameField);
         frame.add(emailField);
         frame.add(passwordField);
         frame.add(confirmPasswordField);
@@ -107,8 +118,10 @@ public class SIGNUP_PAGE {
         frame.add(login_button);
         frame.add(backButton);
 
+        // Enter tuşu ile ilişkilendirme
         SwingUtilities.getRootPane(signupButton).setDefaultButton(signupButton);
 
+        // Çerçeve ayarları
         frame.setSize(700, 400);
         frame.setResizable(false);
         frame.setTitle("Drug Tracking System");
@@ -118,6 +131,7 @@ public class SIGNUP_PAGE {
         frame.setVisible(true);
     }
 
+    // Kayıt ol butonu
     private JButton getSignupButton() {
         JButton signupButton = new JButton("SIGN UP");
         signupButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
@@ -127,14 +141,14 @@ public class SIGNUP_PAGE {
         signupButton.addActionListener(e -> {
             char[] password = passwordField.getPassword ();
             char[] confirmPassword = confirmPasswordField.getPassword();
-            if (companyNameField.getText().isEmpty() || emailField.getText().isEmpty() || password.length == 0 || confirmPassword.length == 0){
+            if (nameField.getText().isEmpty() || emailField.getText().isEmpty() || password.length == 0 || confirmPassword.length == 0){
                 JOptionPane.showMessageDialog(frame, "Check Sign Up Information", "Empty Inputs", JOptionPane.ERROR_MESSAGE);
             }
             else{
                 if (Arrays.equals(password, confirmPassword)){
                     DTS_DAO dtsDao = new DTS_DAO();
                     try {
-                        boolean r = dtsDao.save(companyNameField.getText(), emailField.getText(), password);
+                        boolean r = dtsDao.save(nameField.getText(), emailField.getText(), password);
                         if (r){
                             new LOGIN_PAGE();
                             frame.dispose();
@@ -154,6 +168,7 @@ public class SIGNUP_PAGE {
         return signupButton;
     }
 
+    // Hesabı varsa giriş yap butonu
     private JButton getSignInButton(){
         JButton signingButton = new JButton("ALREADY HAVE AN ACCOUNT? SIGN IN");
         signingButton.setFont(new Font("Pt Mono", Font.BOLD, 10));
@@ -174,6 +189,7 @@ public class SIGNUP_PAGE {
         return signingButton;
     }
 
+    // Bir önceki sayfaya dönme butonu
     public JButton getBackButton() throws IOException {
         BufferedImage imageBack = ImageIO.read(new File("Resources/arrowshape.backward.png"));
         JButton backButton = new JButton(new ImageIcon(imageBack));
@@ -195,6 +211,7 @@ public class SIGNUP_PAGE {
         return backButton;
     }
 
+    // Şifre görüntüleme butonu
     private JButton getEyeButtonPassword() throws IOException {
         eye = ImageIO.read(new File("Resources/eye.png"));
         JButton eyeButton = new JButton(new ImageIcon(eye));
@@ -213,6 +230,7 @@ public class SIGNUP_PAGE {
         return eyeButton;
     }
 
+    // Şifre gizleme butonu
     private JButton getEyeSlashButtonPassword() throws IOException {
         eyeSlash = ImageIO.read(new File("Resources/eye.slash.png"));
         JButton eyeSlashButton = new JButton(new ImageIcon(eyeSlash));
@@ -233,6 +251,7 @@ public class SIGNUP_PAGE {
         return eyeSlashButton;
     }
 
+    // Şifre doğrulama görüntüleme butonu
     private JButton getEyeButtonConfirmPassword() throws IOException {
         eye = ImageIO.read(new File("Resources/eye.png"));
         JButton eyeButton = new JButton(new ImageIcon(eye));
@@ -251,6 +270,7 @@ public class SIGNUP_PAGE {
         return eyeButton;
     }
 
+    // Şifre doğrulama gizleme butonu
     private JButton getEyeSlashButtonConfirmPassword() throws IOException {
         eyeSlash = ImageIO.read(new File("Resources/eye.slash.png"));
         JButton eyeSlashButton = new JButton(new ImageIcon(eyeSlash));

@@ -2,8 +2,10 @@ package Database;
 
 import java.sql.*;
 
+// Veri tabanı fonksiyonları
 public class DTS_DAO {
 
+    // Veri tabanı giriş bilgilerinin ayarlanması
     String url = "jdbc:mysql://localhost:3306/ilacdb";
     String username = "root";
     String passwd = "";
@@ -11,7 +13,7 @@ public class DTS_DAO {
     public DTS_DAO() {
     }
 
-
+    // İlaç sorgulama fonksiyonu
     public boolean query(String barcode) throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -24,6 +26,7 @@ public class DTS_DAO {
         return result.next();
     }
 
+    // İlaç ekleme fonksiyonu
     public void add(String name, String barcode, String p, String type) throws ClassNotFoundException, SQLException{
         int price = Integer.parseInt(p);
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -40,6 +43,7 @@ public class DTS_DAO {
         connection.close();
     }
 
+    // İlaç kayıt silme fonksiyonu
     public boolean remove(String barcode) throws ClassNotFoundException, SQLException{
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, username, passwd);
@@ -51,6 +55,7 @@ public class DTS_DAO {
         return rows > 0;
     }
 
+    // Hesap kayıt durumunun kontrolü
     public boolean control(String username, char[] password) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, this.username, passwd);
@@ -63,6 +68,7 @@ public class DTS_DAO {
         return result.next();
     }
 
+    // Kullanıcı kayıt fonksiyonu
     public boolean save(String companyName, String username, char[] password) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, this.username, passwd);
@@ -85,6 +91,7 @@ public class DTS_DAO {
         return result > 0;
     }
 
+    // İlaç bilgilerini döndüren fonksiyon
     public String getDrugInformation(String barcode) throws ClassNotFoundException, SQLException{
 
         String drugInfo = "";
@@ -106,6 +113,7 @@ public class DTS_DAO {
         return drugInfo;
     }
 
+    // E-Posta değiştirme fonksiyonu
     public boolean changeEmail(String previousEmail, String newEmail) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, this.username, passwd);
@@ -125,6 +133,7 @@ public class DTS_DAO {
         else return false;
     }
 
+    // Şifre değiştirme fonksiyonu
     public boolean changePassword(String previousPassword, char[] newPassword) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, this.username, passwd);
@@ -144,6 +153,7 @@ public class DTS_DAO {
         else return false;
     }
 
+    // Kullanıcı ismini döndüren fonksiyon
     public String getUserName(String email) throws ClassNotFoundException, SQLException {
 
         String name = "";
@@ -161,6 +171,7 @@ public class DTS_DAO {
         return name;
     }
 
+    // Hesap silme fonksiyonu
     public boolean deleteAccount(String email) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, this.username, passwd);

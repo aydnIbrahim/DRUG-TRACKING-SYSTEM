@@ -1,5 +1,6 @@
 package Drug;
 
+// Ana ilaç sınıfı
 abstract class Drug {
 
     final String name;

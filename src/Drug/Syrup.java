@@ -1,5 +1,6 @@
 package Drug;
 
+// Şurup ilaçlar
 public class Syrup extends Drug{
 
     public Syrup(String name, String barcode, String price) {
@@ -24,7 +25,7 @@ public class Syrup extends Drug{
 
     @Override
     public String getType() {
-        return "Drug.Syrup";
+        return "Syrup";
     }
 
 }

@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
+// Giriş yap sayfası
 public class LOGIN_PAGE {
 
     private final JFrame frame;
@@ -27,26 +28,31 @@ public class LOGIN_PAGE {
 
         frame = new JFrame();
 
+        // Sayfa başlığı
         JLabel titleLabel1 = new JLabel("WELCOME TO");
         titleLabel1.setFont(new Font("Pt Mono", Font.BOLD, 30));
         titleLabel1.setForeground(new Color(202, 204, 220));
         titleLabel1.setBounds(260, 30, 200, 50);
 
+        // Sayfa başlığı
         JLabel titleLabel2 = new JLabel("DRUG TRACKING SYSTEM");
         titleLabel2.setFont(new Font("Pt Mono", Font.BOLD, 30));
         titleLabel2.setForeground(new Color(202, 204, 220));
         titleLabel2.setBounds(171, 60, 500, 50);
 
+        // E-Posta etiketi
         JLabel emailLabel = new JLabel("Email");
         emailLabel.setFont(new Font("Pt Mono", Font.BOLD, 16));
         emailLabel.setForeground(new Color(37, 153, 252));
         emailLabel.setBounds(252, 170, 100, 30);
 
+        // Şifre etiketi
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setFont(new Font("Pt Mono", Font.BOLD, 16));
         passwordLabel.setForeground(new Color(37, 153, 252));
         passwordLabel.setBounds(252, 200, 100, 30);
 
+        // E-Posta giriş alanı
         emailField = new JTextField();
         emailField.setBounds(352, 170, 175, 30);
         emailField.setBackground(new Color(32, 34, 46));
@@ -54,6 +60,7 @@ public class LOGIN_PAGE {
         emailField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
         emailField.setCaretColor(new Color(37, 153, 252));
 
+        // Şifre giriş alanı
         passwordField = new JPasswordField();
         passwordField.setBounds(352, 200, 175, 30);
         passwordField.setEchoChar('*');
@@ -62,9 +69,11 @@ public class LOGIN_PAGE {
         passwordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
         passwordField.setCaretColor(new Color(37, 153, 252));
 
+        // Buton atamaları
         JButton login_button = getLoginButton();
         JButton signup_button = getSignupButton();
 
+        // Bileşenlerin çerçeveye eklenmesi
         frame.add(eyeButton);
         frame.add(eyeSlashButton);
         frame.add(titleLabel1);
@@ -76,8 +85,10 @@ public class LOGIN_PAGE {
         frame.add(login_button);
         frame.add(signup_button);
 
+        // Enter tuşu ile ilişkilendirme
         SwingUtilities.getRootPane(login_button).setDefaultButton(login_button);
 
+        // Çerçeve ayarları
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 400);
         frame.setResizable(false);
@@ -88,7 +99,7 @@ public class LOGIN_PAGE {
         frame.setVisible(true);
     }
 
-
+    // Giriş yap butonu
     private JButton getLoginButton() {
         JButton login_button = new JButton("LOGIN");
         login_button.setFont(new Font("Pt Mono", Font.BOLD, 15));
@@ -115,6 +126,7 @@ public class LOGIN_PAGE {
         return login_button;
     }
 
+    // Hesabın yoksa kayıt ol butonu
     private JButton getSignupButton(){
         JButton signup_button = new JButton("DON'T HAVE AN ACCOUNT? SIGN UP");
         signup_button.setFont(new Font("Pt Mono", Font.BOLD, 10));
@@ -135,6 +147,7 @@ public class LOGIN_PAGE {
         return signup_button;
     }
 
+    // Şifre görüntüleme butonu
     private JButton getEyeButton() throws IOException {
         eye = ImageIO.read(new File("Resources/eye.png"));
         JButton eyeButton = new JButton(new ImageIcon(eye));
@@ -153,6 +166,7 @@ public class LOGIN_PAGE {
         return eyeButton;
     }
 
+    // Şifre gizleme butonu
     private JButton getEyeSlashButton() throws IOException {
         eyeSlash = ImageIO.read(new File("Resources/eye.slash.png"));
         JButton eyeSlashButton = new JButton(new ImageIcon(eyeSlash));
@@ -173,10 +187,12 @@ public class LOGIN_PAGE {
         return eyeSlashButton;
     }
 
+    // Kullanıcı giriş yaptıktan sonra kullanıcı ismini döndüren fonksiyon
     public static String getUserName() {
         return userName;
     }
 
+    // Kullanıcı giriş yaptıktan sonra e-posta adresini döndüren fonksiyon
     public static String getUserEmail() {
         return userEmail;
     }
