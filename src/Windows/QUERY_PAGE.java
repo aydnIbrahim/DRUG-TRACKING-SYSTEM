@@ -40,7 +40,9 @@ public class QUERY_PAGE {
         JButton backButton = getBackButton();
         JButton queryButton = getQueryButton();
         JButton removeButton = getRemoveButton();
+        JButton profileButton = getProfileButton();
 
+        frame.add(profileButton);
         frame.add(imageLabel);
         frame.add(barcodeLabel);
         frame.add(barcodeField);
@@ -110,7 +112,7 @@ public class QUERY_PAGE {
         return removeButton;
     }
 
-    public JButton getBackButton() throws IOException {
+    private JButton getBackButton() throws IOException {
         BufferedImage imageBack = ImageIO.read(new File("Resources/arrowshape.backward.png"));
         JButton backButton = new JButton(new ImageIcon(imageBack));
         backButton.setBackground(new Color(32, 34,46));
@@ -129,5 +131,25 @@ public class QUERY_PAGE {
         });
 
         return backButton;
+    }
+
+    private JButton getProfileButton() throws IOException {
+        BufferedImage imageProfile = ImageIO.read(new File("Resources/personPage.png"));
+        JButton profileButton = new JButton(new ImageIcon(imageProfile));
+        profileButton.setBackground(new Color(32, 34,46));
+        profileButton.setFocusable(false);
+        profileButton.setBorderPainted(false);
+        profileButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        profileButton.setBounds(650, 20, 40, 40);
+
+        profileButton.addActionListener(e -> {
+            frame.dispose();
+            try {
+                new ACCOUNT_PAGE();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        return profileButton;
     }
 }

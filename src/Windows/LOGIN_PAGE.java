@@ -15,6 +15,7 @@ public class LOGIN_PAGE {
     private final JFrame frame;
     private final JPasswordField passwordField;
     private final JTextField emailField;
+    private static String userName;
     JButton eyeButton = getEyeButton();
     JButton eyeSlashButton = getEyeSlashButton();
     BufferedImage eye;
@@ -95,9 +96,10 @@ public class LOGIN_PAGE {
 
         login_button.addActionListener(e -> {
             char[] password = passwordField.getPassword ();
-            DTS_DAO itsDao = new DTS_DAO();
+            DTS_DAO dtsDao = new DTS_DAO();
             try {
-                boolean r = itsDao.control(emailField.getText(), password);
+                userName = dtsDao.getUserName(emailField.getText());
+                boolean r = dtsDao.control(emailField.getText(), password);
                 if (r){
                     new MAIN_PAGE();
                     frame.dispose();
@@ -169,4 +171,7 @@ public class LOGIN_PAGE {
         return eyeSlashButton;
     }
 
+    public static String getUserName() {
+        return userName;
+    }
 }

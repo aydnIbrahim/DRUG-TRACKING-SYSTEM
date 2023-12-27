@@ -10,8 +10,8 @@
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Windows/ACCOUNT_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/ACCOUNT_PAGE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Windows/LOGIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/LOGIN_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/MAIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/MAIN_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/USER_INFO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Windows/QUERY_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/QUERY_PAGE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Windows/SAVE_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/SAVE_PAGE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +141,7 @@
       <workItem from="1703093529406" duration="3960000" />
       <workItem from="1703138056105" duration="989000" />
       <workItem from="1703628980564" duration="5059000" />
+      <workItem from="1703655264349" duration="1217000" />
     </task>
     <task id="LOCAL-00001" summary="İlaç Takip Sistemi">
       <option name="closed" value="true" />
@@ -318,7 +319,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703097654723</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="DRUG TRACKING SYSTEM">
+      <option name="closed" value="true" />
+      <created>1703655272660</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1703655272660</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -150,7 +150,7 @@ public class DTS_DAO {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(url, this.username, passwd);
-        String query = "SELECT commpanyName FROM login WHERE username = ?";
+        String query = "SELECT companyName FROM login WHERE username = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, email);
         ResultSet rs = statement.executeQuery();

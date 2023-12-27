@@ -34,8 +34,6 @@ public class ACCOUNT_PAGE {
 
         BufferedImage ppMask = ImageIO.read(new File("Resources/ppMask.png"));
 
-        String name = "IBRAHIM AYDIN";
-
         JLabel ppLabel = new JLabel(new ImageIcon(ppMask));
         ppLabel.setBounds(300, -1, 110, 110);
 
@@ -47,7 +45,7 @@ public class ACCOUNT_PAGE {
         StyleConstants.setFontSize(center, 20);
         StyleConstants.setBold(center, true);
         StyleConstants.setForeground(center, new Color(202, 204, 220));
-        namePane.setText(name);
+        namePane.setText(LOGIN_PAGE.getUserName());
         namePane.setBounds(250, 110, 200, 30);
         namePane.setBackground(new Color(32, 34,46));
         namePane.setEditable(false);
@@ -57,6 +55,7 @@ public class ACCOUNT_PAGE {
         JButton changeEmailButton = getChangeEmailButton();
         JButton changePasswordButton = getChangePasswordButton();
         JButton deleteAccountButton = getDeleteAccountButton();
+        JButton backButton = getBackButton();
 
         changeEmailField = new JTextField();
         changeEmailField.setBounds(365, 160, 175, 30);
@@ -73,6 +72,7 @@ public class ACCOUNT_PAGE {
         changePasswordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
         changePasswordField.setCaretColor(new Color(37, 153, 252));
 
+        frame.add(backButton);
         frame.add(eyeButton);
         frame.add(eyeSlashButton);
         frame.add(changePasswordField);
@@ -177,7 +177,7 @@ public class ACCOUNT_PAGE {
         eyeButton.setContentAreaFilled(false);
         eyeButton.setBackground(new Color(255, 255, 255));
         eyeButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        eyeButton.setBounds(503, 180, 40, 40);
+        eyeButton.setBounds(503, 195, 40, 40);
 
         eyeButton.addActionListener(e -> {
             changePasswordField.setEchoChar((char)0);
@@ -195,7 +195,7 @@ public class ACCOUNT_PAGE {
         eyeSlashButton.setContentAreaFilled(false);
         eyeSlashButton.setBackground(new Color(255, 255, 255));
         eyeSlashButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        eyeSlashButton.setBounds(503, 180, 40, 40);
+        eyeSlashButton.setBounds(503, 195, 40, 40);
 
         eyeSlashButton.setVisible(false);
 
@@ -206,6 +206,27 @@ public class ACCOUNT_PAGE {
         });
 
         return eyeSlashButton;
+    }
+
+    private JButton getBackButton() throws IOException {
+        BufferedImage imageBack = ImageIO.read(new File("Resources/arrowshape.backward.png"));
+        JButton backButton = new JButton(new ImageIcon(imageBack));
+        backButton.setBackground(new Color(32, 34,46));
+        backButton.setFocusable(false);
+        backButton.setBorderPainted(false);
+        backButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        backButton.setBounds(5, 5, 50, 50);
+
+        backButton.addActionListener(e -> {
+            frame.dispose();
+            try {
+                new MAIN_PAGE();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        return backButton;
     }
 
 }
