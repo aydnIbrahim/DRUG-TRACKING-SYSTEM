@@ -160,4 +160,15 @@ public class DTS_DAO {
         }
         return name;
     }
+
+    public boolean deleteAccount(String email) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection(url, this.username, passwd);
+        String query = "DELETE FROM login WHERE username = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, email);
+        int rows = statement.executeUpdate();
+
+        return rows > 0;
+    }
 }

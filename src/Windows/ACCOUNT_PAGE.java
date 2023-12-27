@@ -72,6 +72,7 @@ public class ACCOUNT_PAGE {
         changePasswordField.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(37, 153, 252)));
         changePasswordField.setCaretColor(new Color(37, 153, 252));
 
+        frame.add(deleteAccountButton);
         frame.add(backButton);
         frame.add(eyeButton);
         frame.add(eyeSlashButton);
@@ -138,9 +139,25 @@ public class ACCOUNT_PAGE {
 
     private JButton getDeleteAccountButton(){
         JButton deleteAccountButton = new JButton("Delete Account");
-        deleteAccountButton.setFont(new Font("Pt Mono", Font.BOLD, 15));
+        deleteAccountButton.setFont(new Font("Pt Mono", Font.BOLD, 14));
+        deleteAccountButton.setForeground(new Color(216, 22, 22));
         deleteAccountButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        deleteAccountButton.setBounds(275, 240, 150, 30);
+        deleteAccountButton.setBounds(275, 280, 150, 30);
+
+        deleteAccountButton.addActionListener(e -> {
+            DTS_DAO dtsDao = new DTS_DAO();
+            try {
+                boolean status = dtsDao.deleteAccount(LOGIN_PAGE.getUserEmail());
+                if (status) {
+                    JOptionPane.showMessageDialog(frame, "Your Account Has Been Deleted", "Account Deleted", JOptionPane.INFORMATION_MESSAGE);
+                    frame.dispose();
+                    new LOGIN_PAGE();
+                }
+                else JOptionPane.showMessageDialog(frame, "Your Account Could not be deleted.", "Failed", JOptionPane.ERROR_MESSAGE);
+            } catch (ClassNotFoundException | SQLException | IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
         return deleteAccountButton;
     }

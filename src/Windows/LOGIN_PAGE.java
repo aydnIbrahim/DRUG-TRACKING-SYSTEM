@@ -16,6 +16,7 @@ public class LOGIN_PAGE {
     private final JPasswordField passwordField;
     private final JTextField emailField;
     private static String userName;
+    private static String userEmail;
     JButton eyeButton = getEyeButton();
     JButton eyeSlashButton = getEyeSlashButton();
     BufferedImage eye;
@@ -95,6 +96,7 @@ public class LOGIN_PAGE {
         login_button.setBounds(307, 270, 100, 30);
 
         login_button.addActionListener(e -> {
+            userEmail = emailField.getText();
             char[] password = passwordField.getPassword ();
             DTS_DAO dtsDao = new DTS_DAO();
             try {
@@ -173,5 +175,9 @@ public class LOGIN_PAGE {
 
     public static String getUserName() {
         return userName;
+    }
+
+    public static String getUserEmail() {
+        return userEmail;
     }
 }
