@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="DRUG TRACKING SYSTEM">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database/DTS_DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/DTS_DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Drug/Drug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Drug/Drug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Drug/Pill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Drug/Pill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Drug/Syrup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Drug/Syrup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/ACCOUNT_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/ACCOUNT_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/LOGIN_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/LOGIN_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/QUERY_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/QUERY_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/SAVE_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/SAVE_PAGE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Windows/SIGNUP_PAGE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Windows/SIGNUP_PAGE.java" afterDir="false" />
-    </list>
+    <list default="true" id="2bf3ed22-ada1-469a-abac-a0237ae5597d" name="Changes" comment="DRUG TRACKING SYSTEM" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,6 +136,7 @@
       <workItem from="1703655264349" duration="4231000" />
       <workItem from="1703663014021" duration="2165000" />
       <workItem from="1703666151541" duration="2659000" />
+      <workItem from="1706108534527" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="İlaç Takip Sistemi">
       <option name="closed" value="true" />
@@ -357,7 +346,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703661304526</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="DRUG TRACKING SYSTEM">
+      <option name="closed" value="true" />
+      <created>1706108550200</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1706108550200</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
